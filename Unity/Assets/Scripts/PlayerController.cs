@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         //Below Code Moves Player Perspective
-        //
+        /*
         mouseX = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, 0)).x;
         mouseY = Camera.main.ScreenToWorldPoint(new Vector2(0, Input.mousePosition.y)).y;
         playerX = transform.position.x;
@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg*(Mathf.Atan(mouseY-playerY/mouseX-playerX)));
         }
         Debug.Log((mouseY - playerY) + "/" + (mouseX - playerX)+", "+ Mathf.Atan(mouseY - playerY / mouseX - playerX));
-        /*else if()//if the mouse is in the second quadrant in relation to the player*/
+        else if()//if the mouse is in the second quadrant in relation to the player
+        */
     }
     void FixedUpdate()
     {

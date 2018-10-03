@@ -6,8 +6,7 @@ public class CameraController : MonoBehaviour {
     public GameObject target;
     public float stickyness;
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+        transform.position = Vector3.Lerp(transform.position, target.transform.position, stickyness);
 	}
 }
