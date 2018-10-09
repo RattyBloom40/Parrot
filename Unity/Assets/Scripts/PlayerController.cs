@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour {
     float mouseY;
     float playerX;
     float playerY;
-    Transform target;
 
     void Start () {
         //set r2bd to a reference of the rigidbody so it can be accessed later
@@ -26,12 +25,9 @@ public class PlayerController : MonoBehaviour {
         playerX = transform.position.x;
         playerY = transform.position.y;
         float step = speed * Time.deltaTime;
-
         Vector3 newDir = Vector3.RotateTowards(-transform.right ,new Vector3(playerX, playerY, 0) - new Vector3(mouseX, mouseY, 0), step, 0.0f);
-        
-        Debug.DrawRay(transform.position, newDir, Color.red);
-
         transform.rotation = Quaternion.FromToRotation(Vector3.left,newDir);
+        //
     }
     void FixedUpdate() {
         Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // use the horizontal and vertical axes to create a vector with variable movement
