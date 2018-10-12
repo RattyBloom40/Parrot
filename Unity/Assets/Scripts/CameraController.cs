@@ -5,8 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     public GameObject target;
     public float stickyness;
+    public bool freeze;
 	
 	void FixedUpdate () {
-        transform.position = Vector3.Lerp(transform.position, target.transform.position, stickyness);
+        if (!freeze)
+            transform.position = Vector3.Lerp(transform.position, target.transform.position, stickyness);
 	}
 }
