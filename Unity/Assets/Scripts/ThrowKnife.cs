@@ -44,7 +44,6 @@ public class ThrowKnife : MonoBehaviour
                         {
                             currentKnife = knives[0];
                         }
-                        Debug.Log("here");
                         currentKnife.SetActive(true);
                     }
                 }
