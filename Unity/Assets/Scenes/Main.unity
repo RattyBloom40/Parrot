@@ -253,9 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 741061305}
   speed: 12.5
-  dodgeMulti: 2
+  dodgeMulti: 3
   dodge: {x: 0, y: 0}
-  dodgeTime: 0.2
+  dodgeTime: 0.1
 --- !u!1 &601254847
 GameObject:
   m_ObjectHideFlags: 0
