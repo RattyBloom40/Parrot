@@ -6,8 +6,9 @@ public class Knife : MonoBehaviour {
     public float rotateSpeed;
     public float speed;
 
-	void Init (Vector2 dir) {
+	public void Init (Vector2 dir) {
         GetComponent<Rigidbody2D>().velocity = dir * speed;
+        Destroy(gameObject, 10);
 	}
 	
 	void Update () {

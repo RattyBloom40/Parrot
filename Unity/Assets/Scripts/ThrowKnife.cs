@@ -11,12 +11,14 @@ public class ThrowKnife : MonoBehaviour
     float playerX;
     float playerY;
     public GameObject[] knives;
+    public GameObject[] thrownObject;
     public GameObject currentKnife;
     public bool canChangeKnife = true;
     public float knifeChangeTime = .5f;
 
     void Update()
     {
+        //Debug.Log("here");
         //knife throwing animation below
         if (Input.GetButtonDown("Fire1"))
         {
@@ -25,6 +27,8 @@ public class ThrowKnife : MonoBehaviour
                 if (knives[cur] == currentKnife)
                 {
                     currentKnife.SetActive(false);
+
+                    Instantiate(thrownObject[cur], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<Knife>().Init(PlayerController.player.aimDir);
                 }
             }
         }
@@ -35,6 +39,7 @@ public class ThrowKnife : MonoBehaviour
                 {
                     if (knives[cur]==currentKnife)
                     {
+                        Debug.Log("found the current knife");
                         currentKnife.SetActive(false);
                         if (cur < knives.Length - 1)
                         {
@@ -44,11 +49,10 @@ public class ThrowKnife : MonoBehaviour
                         {
                             currentKnife = knives[0];
                         }
-                        Debug.Log("here");
                         currentKnife.SetActive(true);
                     }
                 }
-            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
                 for (int cur = 0; cur < knives.Length; cur++)
                 {
                     if (knives[cur] == currentKnife)

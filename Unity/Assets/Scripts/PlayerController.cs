@@ -9,6 +9,19 @@ public class PlayerController : MonoBehaviour {
     }
     Status status = Status.Normal;
 
+    //************************************* Singleton ******************************************//
+
+    public static PlayerController player;
+
+    void Awake() {
+        if (player == null)
+            player = this;
+        else
+            Debug.Log("Error: 2 PlayerControllers active");
+    }
+
+    //************************************* Singleton ******************************************//
+
     public float speed; //store the player's movement speed
     public float dodgeMulti = 1.4f;
 
@@ -18,7 +31,10 @@ public class PlayerController : MonoBehaviour {
     float playerX;
     float playerY;
 
+    public GameObject entities;
+
     public Vector2 dodge;
+    public Vector2 aimDir;
 
     void Start () {
         //set r2bd to a reference of the rigidbody so it can be accessed later
@@ -33,7 +49,8 @@ public class PlayerController : MonoBehaviour {
                 playerX = transform.position.x;
                 playerY = transform.position.y;
                 float step = speed * Time.deltaTime;
-                Vector3 newDir = Vector3.RotateTowards(-transform.right, new Vector3(playerX, playerY, 0) - new Vector3(mouseX, mouseY, 0), step, 0.0f);
+                Vector3 newDir = Vector3.RotateTowards(-transform.right, new Vector3(playerX, playerY, 0) - new Vector3(mouseX, mouseY, 0),100,100);
+                aimDir = -newDir;
                 transform.rotation = Quaternion.FromToRotation(Vector3.left, newDir);
                 if(Input.GetButtonDown("Fire2")) {
                     dodge = rb2d.velocity.normalized;
