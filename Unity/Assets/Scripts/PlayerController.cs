@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
         Dodging
     }
     Status status = Status.Normal;
-
+   
     //************************************* Singleton ******************************************//
 
     public static PlayerController player;
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //************************************* Singleton ******************************************//
+    public CameraController cam;
 
     public float speed; //store the player's movement speed
     public float dodgeMulti = 1.4f;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 
     public Vector2 dodge;
     public Vector2 aimDir;
+    public float dodgeTime;
 
     void Start () {
         //set r2bd to a reference of the rigidbody so it can be accessed later
@@ -54,6 +56,9 @@ public class PlayerController : MonoBehaviour {
                 transform.rotation = Quaternion.FromToRotation(Vector3.left, newDir);
                 if(Input.GetButtonDown("Fire2")) {
                     dodge = rb2d.velocity.normalized;
+                    status = Status.Dodging;
+                    StartCoroutine(doADodge());
+                    cam.freeze = true;
                 }
                 break;
             case Status.Dodging:
@@ -66,11 +71,17 @@ public class PlayerController : MonoBehaviour {
         switch (status) {
             case Status.Normal:
                 Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // use the horizontal and vertical axes to create a vector with variable movement
-                rb2d.velocity = (movement * speed).normalized; // set the player speed to the current speed rather than adding or subtacting to eliminate acceleration and deceleration times
+                rb2d.velocity = (movement.normalized * speed); // set the player speed to the current speed rather than adding or subtacting to eliminate acceleration and deceleration times
                 break;
             case Status.Dodging:
-
+                rb2d.velocity = dodge.normalized * speed * dodgeMulti;
                 break;
         }
+    }
+
+    IEnumerator doADodge() {
+        yield return new WaitForSeconds(dodgeTime);
+        status = Status.Normal;
+        cam.freeze = false;
     }
 }

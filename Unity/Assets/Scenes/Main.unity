@@ -251,11 +251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0828a309d781f4781ff22800d4d742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 741061305}
   speed: 12.5
   dodgeMulti: 1.4
   entities: {fileID: 896726093}
-  dodge: {x: 0, y: 0}
   aimDir: {x: 0, y: 0}
+  dodgeMulti: 3
+  dodge: {x: 0, y: 0}
+  dodgeTime: 0.1
 --- !u!1 &601254847
 GameObject:
   m_ObjectHideFlags: 0
