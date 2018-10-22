@@ -14,7 +14,7 @@ public class ThrowKnife : MonoBehaviour
     public GameObject[] thrownObject;
     public GameObject currentKnife;
     public bool canChangeKnife = true;
-    public float knifeChangeTime = .5f;
+    public float knifeChangeTime = 1f;
 
     void Update()
     {
