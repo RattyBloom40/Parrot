@@ -253,12 +253,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 741061305}
   speed: 12.5
-  dodgeMulti: 1.4
+  dodgeMulti: 1.5
   entities: {fileID: 896726093}
-  aimDir: {x: 0, y: 0}
-  dodgeMulti: 3
   dodge: {x: 0, y: 0}
-  dodgeTime: 0.1
+  aimDir: {x: 0, y: 0}
+  dodgeTime: 0.25
 --- !u!1 &601254847
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +382,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

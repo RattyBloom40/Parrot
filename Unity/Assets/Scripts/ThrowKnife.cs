@@ -18,7 +18,6 @@ public class ThrowKnife : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("here");
         //knife throwing animation below
         if (Input.GetButtonDown("Fire1"))
         {
@@ -29,6 +28,17 @@ public class ThrowKnife : MonoBehaviour
                     currentKnife.SetActive(false);
 
                     Instantiate(thrownObject[cur], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<Knife>().Init(PlayerController.player.aimDir);
+                    knives[cur].SetActive(false);//deactivate the knife that was thrown
+                    currentKnife.SetActive(false);
+                    if (cur > 0)
+                    {
+                        currentKnife = knives[cur - 1];
+                    }
+                    else if (cur == 0)
+                    {
+                        currentKnife = knives[knives.Length - 1];
+                    }
+                    currentKnife.SetActive(true);
                 }
             }
         }
@@ -39,14 +49,20 @@ public class ThrowKnife : MonoBehaviour
                 {
                     if (knives[cur]==currentKnife)
                     {
-                        Debug.Log("found the current knife");
+                        //Debug.Log("found the current knife");
                         currentKnife.SetActive(false);
                         if (cur < knives.Length - 1)
                         {
+                            Debug.Log("lees than length");
+                            Debug.Log(cur);
                             currentKnife = knives[cur + 1];
+                            currentKnife.SetActive(true);
+                            break;
                         }
                         else if (cur == knives.Length - 1)
                         {
+                            //Debug.Log("equal to length");
+                            //Debug.Log(cur);
                             currentKnife = knives[0];
                         }
                         currentKnife.SetActive(true);
@@ -55,6 +71,7 @@ public class ThrowKnife : MonoBehaviour
             else if (Input.GetAxis("Mouse ScrollWheel") < 0)
                 for (int cur = 0; cur < knives.Length; cur++)
                 {
+                    //Debug.Log(cur);
                     if (knives[cur] == currentKnife)
                     {
                         currentKnife.SetActive(false);

@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
                 mouseY = Camera.main.ScreenToWorldPoint(new Vector2(0, Input.mousePosition.y)).y;
                 playerX = transform.position.x;
                 playerY = transform.position.y;
-                float step = speed * Time.deltaTime;
+                //float step = speed * Time.deltaTime;
                 Vector3 newDir = Vector3.RotateTowards(-transform.right, new Vector3(playerX, playerY, 0) - new Vector3(mouseX, mouseY, 0),100,100);
                 aimDir = -newDir;
                 transform.rotation = Quaternion.FromToRotation(Vector3.left, newDir);
