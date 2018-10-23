@@ -18,8 +18,7 @@ public class ThrowKnife : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("here");
-        //knife throwing animation below
+        //	Knife throwing animation below
         if (Input.GetButtonDown("Fire1"))
         {
             for (int cur = 0; cur < 9; cur++)
@@ -39,7 +38,6 @@ public class ThrowKnife : MonoBehaviour
                 {
                     if (knives[cur]==currentKnife)
                     {
-                        Debug.Log("found the current knife");
                         currentKnife.SetActive(false);
                         if (cur < knives.Length - 1)
                         {
