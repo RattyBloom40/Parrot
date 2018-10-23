@@ -14,4 +14,11 @@ public class Knife : MonoBehaviour {
 	void Update () {
         transform.Rotate(0, 0, rotateSpeed*Time.deltaTime);
 	}
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (!other.CompareTag("Player")) {
+            //GameObject pickup =Instantiate
+            Destroy(gameObject);
+        }
+    }
 }
