@@ -4318,6 +4318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0828a309d781f4781ff22800d4d742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimRing: {fileID: 890050762}
   cam: {fileID: 741061305}
   speed: 12.5
   dodgeMulti: 1.4
@@ -4501,6 +4502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762682480}
   - component: {fileID: 762682481}
+  - component: {fileID: 762682483}
   - component: {fileID: 762682482}
   m_Layer: 0
   m_Name: Graphics
@@ -4517,7 +4519,7 @@ Transform:
   m_GameObject: {fileID: 762682479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 527803154}
   m_RootOrder: 0
@@ -4557,8 +4559,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300012, guid: fb9f69b4d42b3de45b5db046e0a31c70, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4568,8 +4570,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &762682482
-CircleCollider2D:
+--- !u!95 &762682482
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 762682479}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5dfbbb88877d954597ee1d8f38a5aed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &762682483
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4581,8 +4601,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.09
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &890050762
 GameObject:
   m_ObjectHideFlags: 0

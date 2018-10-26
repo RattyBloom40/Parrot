@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 
     //************************************* Singleton ******************************************//
 
+    public GameObject aimRing;
     public CameraController cam;
 
     public float speed; //	store the player's movement speed
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 				playerY = transform.position.y;
 				Vector3 newDir = Vector3.RotateTowards( -transform.right, new Vector3( playerX, playerY, 0 ) - new Vector3( mouseX, mouseY, 0 ), 100, 100 );
 				aimDir = -(newDir.normalized);
-				transform.rotation = Quaternion.FromToRotation( Vector3.left, newDir );
+				aimRing.transform.rotation = Quaternion.FromToRotation( Vector3.left, newDir );
                 if(Input.GetButtonDown("Fire2")) {
 					Vector2 movement = new Vector2( Input.GetAxis( "Horizontal" ), Input.GetAxis( "Vertical" ) );
 					dodge = movement.normalized * speed;
