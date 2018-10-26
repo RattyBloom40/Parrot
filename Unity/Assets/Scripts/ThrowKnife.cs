@@ -12,6 +12,8 @@ public class ThrowKnife : MonoBehaviour
     float playerY;
     public GameObject[] knives;
     public GameObject[] thrownObject;
+    public GameObject[] items;
+    public int[] inventoryStatus;
     public GameObject currentKnife;
     public bool canChangeKnife = true;
     public float knifeChangeTime = 1f;
@@ -26,19 +28,35 @@ public class ThrowKnife : MonoBehaviour
                 if (knives[cur] == currentKnife)
                 {
                     currentKnife.SetActive(false);
-
-                    Instantiate(thrownObject[cur], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<Knife>().Init(PlayerController.player.aimDir);
-                    knives[cur].SetActive(false);//deactivate the knife that was thrown
-                    currentKnife.SetActive(false);
-                    if (cur > 0)
+                    Instantiate(thrownObject[cur], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<Knife>().Init(PlayerController.player.aimDir, items[cur]);
+                    inventoryStatus[cur] -= 1;
+                    int target;
+                    int round = 0;
+                    do
                     {
-                        currentKnife = knives[cur - 1];
-                    }
-                    else if (cur == 0)
+                        round++;
+                        if (cur-round >= 0)
+                        {
+                            target = cur - round;
+                        }
+                        else
+                        {
+                            target = knives.Length - round+cur;
+                        }
+                        if(round>=knives.Length)
+                        {
+                            target = -1;
+                            break;
+                        }
+                    } while (inventoryStatus[target] == 0);
+                    if (target == -1)
+                        currentKnife = null;
+                    else
                     {
-                        currentKnife = knives[knives.Length - 1];
+                        currentKnife = knives[target];
+                        currentKnife.SetActive(true);
                     }
-                    currentKnife.SetActive(true);
+                    break;
                 }
             }
         }

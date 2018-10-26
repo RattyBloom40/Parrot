@@ -5049,15 +5049,26 @@ MonoBehaviour:
   - {fileID: 1071901161}
   - {fileID: 601254847}
   thrownObject:
+  - {fileID: 1009341704897262, guid: 4d85bc08d7dd98b4ba7a779da40b3b0d, type: 2}
   - {fileID: 1975280909789136, guid: b4bae0fee9c005e4987a5cf2c6e76c02, type: 2}
   - {fileID: 1978675216622866, guid: 9d3fedff849c851448924d5146721896, type: 2}
-  - {fileID: 1009341704897262, guid: 4d85bc08d7dd98b4ba7a779da40b3b0d, type: 2}
   - {fileID: 1062945926689074, guid: 0ad1dcd75b8ef9d4db5d9e251400f71a, type: 2}
   - {fileID: 1193834379906400, guid: 10bb9c1c6032c4f4fb75ca99a0d58714, type: 2}
   - {fileID: 1185153994680554, guid: 52d5fdde3a0c68e49afaf475b1c55256, type: 2}
   - {fileID: 1703109942192278, guid: 1abd1ea7f2f2a124a8a9bff70f9f01f1, type: 2}
   - {fileID: 1581460963841042, guid: 5f8e850841d1b664480c0b6cb0c4a10a, type: 2}
   - {fileID: 1258700438590710, guid: 67d751394a8cf524997ac6bf9a695157, type: 2}
+  items:
+  - {fileID: 1104263448542680, guid: e468a240df685df4484073dd3947a286, type: 2}
+  - {fileID: 1104263448542680, guid: 1c32669caa10e4a41b795f8bbf1e2ae6, type: 2}
+  - {fileID: 1104263448542680, guid: e468a240df685df4484073dd3947a286, type: 2}
+  - {fileID: 1104263448542680, guid: 09cf88e2bd2b36b41a75842b73c3454e, type: 2}
+  - {fileID: 1104263448542680, guid: 68faa3de22340dc46b12c8f986363ef4, type: 2}
+  - {fileID: 1104263448542680, guid: 8e36118e4002b424c916db789a662f71, type: 2}
+  - {fileID: 1104263448542680, guid: dd0db416d5d4cc14cb158107f901e0f7, type: 2}
+  - {fileID: 1104263448542680, guid: 587a6b16dc30e6b45a1b31c1c2e52d14, type: 2}
+  - {fileID: 1104263448542680, guid: 0587da09441b79449a0d642d5df9a4ba, type: 2}
+  inventoryStatus: 020000000200000002000000000000000000000000000000000000000000000000000000
   currentKnife: {fileID: 43670372}
   canChangeKnife: 1
   knifeChangeTime: 0.5

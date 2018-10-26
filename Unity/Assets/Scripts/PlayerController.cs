@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
     float playerY;
 
     public GameObject entities;
-
+    public ThrowKnife knifethrow;
     public Vector2 dodge;
     public Vector2 aimDir;
     public float dodgeTime;
