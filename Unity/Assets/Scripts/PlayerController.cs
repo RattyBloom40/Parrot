@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 break;
 			case Status.Dodging:
-				transform.rotation = Quaternion.FromToRotation( Vector3.left, -dodge );
+				aimRing.transform.rotation = Quaternion.FromToRotation( Vector3.left, -dodge );
                 break;
         }
     }
