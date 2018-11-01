@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour {
 
     //************************************* Singleton ******************************************//
 
+    public Animator anim;
+
     public GameObject aimRing;
     public CameraController cam;
 
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour {
 				mouseY = Camera.main.ScreenToWorldPoint( new Vector2( 0, Input.mousePosition.y ) ).y;
 				playerX = transform.position.x;
 				playerY = transform.position.y;
+                anim.SetBool("Right", mouseX >= playerX);
 				Vector3 newDir = Vector3.RotateTowards( -transform.right, new Vector3( playerX, playerY, 0 ) - new Vector3( mouseX, mouseY, 0 ), 100, 100 );
 				aimDir = -(newDir.normalized);
 				aimRing.transform.rotation = Quaternion.FromToRotation( Vector3.left, newDir );
@@ -74,6 +77,7 @@ public class PlayerController : MonoBehaviour {
         switch (status) {
             case Status.Normal:
                 Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // use the horizontal and vertical axes to create a vector with variable movement
+                anim.SetBool("Moving", movement.magnitude >= .01f);
                 rb2d.velocity = (movement.normalized * speed); // set the player speed to the current speed rather than adding or subtacting to eliminate acceleration and deceleration times
                 break;
             case Status.Dodging:
