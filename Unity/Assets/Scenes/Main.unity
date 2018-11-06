@@ -5479,6 +5479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639993624}
   - component: {fileID: 1639993625}
+  - component: {fileID: 1639993626}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -5512,7 +5513,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7aa6eb3cfb77f41889c68e40e4b8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   state: 0
+=======
+  path: []
+  speed: 1
+  weapon: {fileID: 0}
+  state: 0
+--- !u!50 &1639993626
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639993623}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+>>>>>>> 87e25ae8cfc699aad69858cd9c91c2711aa0fe8f
 --- !u!1 &1679054483
 GameObject:
   m_ObjectHideFlags: 0
