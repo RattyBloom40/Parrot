@@ -20,6 +20,11 @@ public class Weapon : ScriptableObject {
         Ranged
     }
 
+    public bool Attack(Vector2 dir)
+    {
+        return true;
+    }
+
     public DamageType damageType;
     public Type type;
 }
