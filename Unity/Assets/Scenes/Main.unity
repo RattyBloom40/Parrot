@@ -5513,9 +5513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7aa6eb3cfb77f41889c68e40e4b8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  state: 0
-=======
   path: []
   speed: 1
   weapon: {fileID: 0}
@@ -5540,7 +5537,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
->>>>>>> 87e25ae8cfc699aad69858cd9c91c2711aa0fe8f
 --- !u!1 &1679054483
 GameObject:
   m_ObjectHideFlags: 0
