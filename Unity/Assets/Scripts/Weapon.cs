@@ -33,15 +33,18 @@ public class Weapon : ScriptableObject {
             {
                 case Type.Melee:
                     cooldown = true;
+                    Reload();
                     break;
                 case Type.Ranged:
                     switch (damageType) //check hitscan vs projectile
                     {
                         case DamageType.Hitscan:
                             cooldown = true;
+                            Reload();
                             break;
                         case DamageType.Projectile:
                             cooldown = true;
+                            Reload();
                             break;
                     }
                     break;

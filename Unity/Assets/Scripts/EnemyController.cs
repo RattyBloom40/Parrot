@@ -1,5 +1,5 @@
 ﻿/*
-Need to finish weapon.Attack() and update aimDir
+Need to finish weapon.Attack() and move
 */
 using System;
 using System.Collections;
@@ -32,19 +32,23 @@ public class EnemyController : MonoBehaviour {
     }
 
     public State state;
+    private Vector2 pathTowards;
 
     void Update() {
-        Vector2 pathTowards;
+        pathTowards = Vector2.zero;
+        Vector3 newDir;
         switch(state) {
             case State.Patrol:
-                if (PathTo(path[index]).Equals(path[index])){ //if pathTo returns current position
+                if (PathTo(path[index]).magnitude < .5f){ //if pathTo returns current position *OR* past
                     index = index >= path.Length-1 ? 0 : ++index; //if reached path point, go to next path point *ALSO* change aimDir towards next path point
                 }
-                else{
-                    pathTowards = PathTo(path[index]); //movement = towards player
-                }
+                newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(path[index].x, path[index].y, 0), 100, 100);
+                aimDir = -(newDir.normalized);
+                pathTowards = PathTo(path[index]); //movement = towards player
                 break;
             case State.HuntPlayer:
+                newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y, 0), 100, 100);
+                aimDir = -(newDir.normalized);
                 if (PathTo(PlayerController.player.transform.position, weapon).magnitude<.5f){ //path towards the player with weaponRange in between *ALSO* aimDir towards player
                     weapon.Attack(aimDir);
                 }
@@ -55,6 +59,11 @@ public class EnemyController : MonoBehaviour {
                 break;
         }
         //move to pathTowards
+    }
+
+    private void FixedUpdate()
+    {
+        rb2d.velocity = pathTowards.normalized * speed;
     }
 
     Vector2 PathTo(Vector2 place)
