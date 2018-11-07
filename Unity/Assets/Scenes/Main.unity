@@ -4324,6 +4324,7 @@ MonoBehaviour:
   speed: 12.5
   dodgeMulti: 1.5
   entities: {fileID: 896726093}
+  knifethrow: {fileID: 0}
   dodge: {x: 0, y: 0}
   aimDir: {x: 0, y: 0}
   dodgeTime: 0.25
@@ -4520,7 +4521,7 @@ Transform:
   m_GameObject: {fileID: 762682479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 2, z: 1}
+  m_LocalScale: {x: 2.5, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 527803154}
   m_RootOrder: 0
@@ -5082,7 +5083,7 @@ MonoBehaviour:
   items:
   - {fileID: 1104263448542680, guid: e468a240df685df4484073dd3947a286, type: 2}
   - {fileID: 1104263448542680, guid: 1c32669caa10e4a41b795f8bbf1e2ae6, type: 2}
-  - {fileID: 1104263448542680, guid: e468a240df685df4484073dd3947a286, type: 2}
+  - {fileID: 1104263448542680, guid: 02c1059e6c8922a46b314968bcc1851b, type: 2}
   - {fileID: 1104263448542680, guid: 09cf88e2bd2b36b41a75842b73c3454e, type: 2}
   - {fileID: 1104263448542680, guid: 68faa3de22340dc46b12c8f986363ef4, type: 2}
   - {fileID: 1104263448542680, guid: 8e36118e4002b424c916db789a662f71, type: 2}
