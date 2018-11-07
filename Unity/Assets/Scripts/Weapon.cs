@@ -24,39 +24,4 @@ public class Weapon : ScriptableObject {
 
     public DamageType damageType;
     public Type type;
-
-    public bool Attack(Vector2 dir)
-    {
-        if (!cooldown)
-        {
-            switch (type) //check melee vs ranged
-            {
-                case Type.Melee:
-                    cooldown = true;
-                    Reload();
-                    break;
-                case Type.Ranged:
-                    switch (damageType) //check hitscan vs projectile
-                    {
-                        case DamageType.Hitscan:
-                            cooldown = true;
-                            Reload();
-                            break;
-                        case DamageType.Projectile:
-                            cooldown = true;
-                            Reload();
-                            break;
-                    }
-                    break;
-            }
-        }
-        return true;
-    }
-
-    public void Reload() //in between attacks (cooldown counter)
-    {
-
-    }
-
-    
 }

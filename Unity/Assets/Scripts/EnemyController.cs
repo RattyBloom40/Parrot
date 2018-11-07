@@ -1,5 +1,5 @@
 ﻿/*
-Need to finish weapon.Attack() and move
+Need to finish weapon.Attack()
 */
 using System;
 using System.Collections;
@@ -16,9 +16,11 @@ public class EnemyController : MonoBehaviour {
     private float enemyY;
     private Rigidbody2D rb2d;
     private Vector2 aimDir;
+    private AttackManager attackManager;
 
     void Start()
     {
+        attackManager = new AttackManager(weapon);
         rb2d = GetComponent<Rigidbody2D>();
         enemyX = transform.position.x;
         enemyY = transform.position.y;
@@ -50,7 +52,7 @@ public class EnemyController : MonoBehaviour {
                 newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y, 0), 100, 100);
                 aimDir = -(newDir.normalized);
                 if (PathTo(PlayerController.player.transform.position, weapon).magnitude<.5f){ //path towards the player with weaponRange in between *ALSO* aimDir towards player
-                    weapon.Attack(aimDir);
+                    attackManager.Attack(aimDir);
                 }
                 else
                 {
@@ -58,7 +60,6 @@ public class EnemyController : MonoBehaviour {
                 }
                 break;
         }
-        //move to pathTowards
     }
 
     private void FixedUpdate()
@@ -69,12 +70,14 @@ public class EnemyController : MonoBehaviour {
     Vector2 PathTo(Vector2 place)
     {
         //give pathPoint towards place w/ regards to speed and walls
+        //use NavMesh
         return place; //when reach *OR* past pathPoint
     }
 
     Vector2 PathTo(Vector2 place, Weapon weapon)
     {
         //give pathPoint towards place w/ regards to speed and walls and weaponRange
+        //use NavMesh
         return place; //when reach *OR* past optimal range
     }
 }
