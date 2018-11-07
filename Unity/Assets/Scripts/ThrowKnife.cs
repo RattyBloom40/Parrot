@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class ThrowKnife : MonoBehaviour
 {
+
+    //************************************* Singleton ******************************************//
+
+    public static ThrowKnife instance;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Debug.Log("Error: 2 ThrowKnifes active");
+    }
+
+    //************************************* Singleton ******************************************//
+
     public float speed; //store the player's movement speed
     private Rigidbody2D rb2d; //store game object for physics
     float mouseX;
@@ -20,6 +35,17 @@ public class ThrowKnife : MonoBehaviour
 
     void Update()
     {
+        if(currentKnife==null)
+            for(int cur=0;cur<knives.Length;cur++)
+            {
+                if(inventoryStatus[cur]>=1)
+                {
+                    Debug.Log("knife = null");
+                    currentKnife = knives[cur];
+                    currentKnife.SetActive(true);
+                    break;
+                }
+            }
         //	Knife throwing animation below
         if (Input.GetButtonDown("Fire1"))
         {
@@ -28,8 +54,13 @@ public class ThrowKnife : MonoBehaviour
                 if (knives[cur] == currentKnife)
                 {
                     currentKnife.SetActive(false);
-                    Instantiate(thrownObject[cur], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<Knife>().Init(PlayerController.player.aimDir, items[cur]);
+                    Instantiate(thrownObject[cur], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<Knife>().Init(PlayerController.player.aimDir, items[cur],cur);
                     inventoryStatus[cur] -= 1;
+                    if (inventoryStatus[cur] >= 1)
+                    {
+                        currentKnife.SetActive(true);
+                        break;
+                    }
                     int target;
                     int round = 0;
                     do
@@ -50,7 +81,9 @@ public class ThrowKnife : MonoBehaviour
                         }
                     } while (inventoryStatus[target] == 0);
                     if (target == -1)
+                    { 
                         currentKnife = null;
+                    }
                     else
                     {
                         currentKnife = knives[target];
