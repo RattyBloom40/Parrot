@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//  @author Andrew
 public class EnemyController : MonoBehaviour {
 
     public Vector2[] path; //maybe work as path?
