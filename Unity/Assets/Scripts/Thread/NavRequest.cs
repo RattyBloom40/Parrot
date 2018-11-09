@@ -12,5 +12,13 @@ namespace Thread {
                 return done;
             }
         }
+
+
+    }
+
+    class NavMap {
+        NavMap(NavMesh mesh) {
+
+        }
     }
 }
