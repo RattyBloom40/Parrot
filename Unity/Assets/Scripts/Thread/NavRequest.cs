@@ -13,12 +13,10 @@ namespace Thread {
             }
         }
 
-
+        public void 
     }
 
     class NavMap {
-        NavMap(NavMesh mesh) {
-
-        }
+        Dictionary<NavNode, int> nodeNumbers = new Dictionary<NavNode, int>();
     }
 }
