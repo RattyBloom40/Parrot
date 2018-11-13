@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
     public Weapon[] knives;
     public Weapon[] guns;
@@ -32,9 +33,9 @@ public class Inventory : MonoBehaviour {
         {
             if (curWeaponList == knives)
             {
-                if (knifeIndex < knives.Length-1)
+                if (knifeIndex < knives.Length - 1)
                     knifeIndex++;
-                else if (knifeIndex >= knives.Length-1)
+                else if (knifeIndex >= knives.Length - 1)
                     knifeIndex = 0;
             }
             else if (curWeaponList == guns)
