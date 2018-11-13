@@ -13,7 +13,10 @@ namespace Thread {
             }
         }
 
-        public void 
+        public NavRequest(Vector2 origin, Vector2 goal, NavMesh mesh)
+        {
+
+        }
     }
 
     class NavMap {
