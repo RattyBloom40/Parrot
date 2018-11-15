@@ -6,20 +6,20 @@ public class ThrowKnife : MonoBehaviour
 {
 
     //************************************* Singleton ******************************************//
-
+    /*
     public static ThrowKnife instance;
 
-    void Awake()
+    //void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Debug.Log("Error: 2 ThrowKnifes active");
     }
-
+    */
     //************************************* Singleton ******************************************//
 
-    public float speed; //store the player's movement speed
+    /*public float speed; //store the player's movement speed
     private Rigidbody2D rb2d; //store game object for physics
     float mouseX;
     float mouseY;
@@ -29,8 +29,8 @@ public class ThrowKnife : MonoBehaviour
     public GameObject[] thrownObject;
     public GameObject[] items;
     public int[] inventoryStatus;
-    public GameObject currentKnife;
-    public bool canChangeKnife = true;
+    public GameObject currentKnife;*/
+    /*public bool canChangeKnife = true;
     public float knifeChangeTime = 1f;
 
     void Update()
@@ -145,5 +145,5 @@ public class ThrowKnife : MonoBehaviour
     {
         yield return new WaitForSeconds(knifeChangeTime);
         canChangeKnife = true;
-    }
+    }*/
 }

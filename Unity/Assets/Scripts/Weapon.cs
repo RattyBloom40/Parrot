@@ -22,4 +22,6 @@ public class Weapon : ScriptableObject {
 
     public DamageType damageType;
     public Type type;
+    public GameObject knifePrefab;
+    public GameObject item;
 }
