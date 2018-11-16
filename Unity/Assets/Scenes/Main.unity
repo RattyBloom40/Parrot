@@ -4416,7 +4416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canChangeKnife: 1
-  knifeChangeTime: 1
+  knifeChangeTime: 0.05
   knives:
   - {fileID: 0}
   - {fileID: 0}

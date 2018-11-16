@@ -6,9 +6,6 @@ public class Inventory : MonoBehaviour {
     public bool canChangeKnife = true;
     public float knifeChangeTime = 1f;
 
-    //public Weapon[] knivesTotal;
-    //public Weapon[] gunsTotal;
-
     public Weapon[] knives;
     public Weapon[] guns;
 
@@ -59,7 +56,6 @@ public class Inventory : MonoBehaviour {
                         knifeIndex++;
                     else if (knifeIndex >= knives.Length - 1)
                         knifeIndex = 0;
-                    Debug.Log(knifeIndex + " big");
                     m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
                 }
                 else if (curWeaponList == guns)
@@ -69,7 +65,6 @@ public class Inventory : MonoBehaviour {
                     else
                         gunIndex = 0;
                 }
-
             }
             if (Input.GetAxisRaw("Mouse ScrollWheel") < 0) //Scrolls through the current weapon list moving DOWN
             {
@@ -79,6 +74,7 @@ public class Inventory : MonoBehaviour {
                         knifeIndex--;
                     else if (knifeIndex <= 0)
                         knifeIndex = knives.Length - 1;
+                    m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
                 }
                 else if (curWeaponList == guns)
                 {
