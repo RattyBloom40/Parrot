@@ -1,13 +1,17 @@
 fileFormatVersion: 2
-guid: 376ef3a4de879ed4f9dcde6e2e6e8124
+guid: c8033bd803f460f44b04a822e17201ba
 TextureImporter:
   fileIDToRecycleName:
-    21300000: combatKnife_blue
-    21300002: combatKnife_metal
-    21300004: combatKnife_red
-    21300006: combatKnife_tnt
-    21300008: combatKnife_hilt
-    21300010: combatKnife_green
+    21300000: kunai_grey
+    21300002: kunai_green
+    21300004: kunai_blue
+    21300006: kunai_red
+    21300008: scissors_yellow
+    21300010: scissors_pink
+    21300012: scissors_green
+    21300014: scissors_blue
+    21300016: scissors_orange
+    21300018: kunai_green
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -51,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,121 +105,181 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: combatKnife_blue
+      name: kunai_grey
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
-        width: 10
+        y: 80
+        width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b930d0e94d8574a1bad23fad19f7f8db
+      spriteID: 2dbe8c42707dac74ba08520a76581dae
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combatKnife_metal
+      name: kunai_green
       rect:
         serializedVersion: 2
-        x: 10
-        y: 88
-        width: 10
+        x: 40
+        y: 80
+        width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c2a68ee51e3147a4809c0cf3cf5fedf
+      spriteID: 48744c1757c12c440a105b8a8cc5d559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combatKnife_red
+      name: kunai_blue
       rect:
         serializedVersion: 2
-        x: 20
-        y: 88
-        width: 10
+        x: 80
+        y: 80
+        width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60c632da72afb4c108e752be5f5cb13e
+      spriteID: 8307c3cf440f1ae4eb9558d1aab27972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combatKnife_tnt
+      name: kunai_red
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 10
+        y: 40
+        width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ac648f73b80b435d9a0d879865c7625
+      spriteID: b90a76a1cf6906d47a505845a6793dc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combatKnife_hilt
+      name: scissors_yellow
       rect:
         serializedVersion: 2
-        x: 10
-        y: 48
-        width: 10
+        x: 40
+        y: 40
+        width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62542e9effa814acdba724f04b286c46
+      spriteID: 054e4e8141155a04aabb10d51b44fba2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: combatKnife_green
+      name: scissors_pink
       rect:
         serializedVersion: 2
-        x: 20
-        y: 48
-        width: 10
+        x: 80
+        y: 40
+        width: 40
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e27745bf31c49c9b7e268f88b62e77
+      spriteID: c306a2410cc04c749bef426b235a484d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scissors_green
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f4ec0717bee64d4f84325bf4bdcdc82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scissors_blue
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0769e1d537b098a4ba3759e2213ae7e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scissors_orange
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4bb8d83586e63d4ea156e80960a72fe
       vertices: []
       indices: 
       edges: []
@@ -223,7 +287,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 85c34c0dbebaa7e469cfee28ec807b2f
+    spriteID: 17bb36ec3a733fc4180a929480fbb7a1
     vertices: []
     indices: 
     edges: []
