@@ -20,7 +20,6 @@ public class Inventory : MonoBehaviour {
 
     public Weapon[] curWeaponList;
 
-<<<<<<< HEAD
     Rigidbody2D rb2D;
     public float floatHeight;
     public float liftForce;
@@ -40,8 +39,6 @@ public class Inventory : MonoBehaviour {
             Debug.Log("Hit enemy");
     }
 
-    private void Update() //takes in input to switch the current weapon
-=======
 
     ///////////////////////////////////////////
     public SpriteRenderer m_SpriteRenderer;
@@ -51,7 +48,6 @@ public class Inventory : MonoBehaviour {
     ///////////////////////////////////////////
 
     void Start()
->>>>>>> ef2bb652136c40d39dc9fc4e86f49699ca3e9334
     {
         curWeaponList = knives;
     }
@@ -134,16 +130,15 @@ public class Inventory : MonoBehaviour {
     {
         return curWeaponList;
     }
-<<<<<<< HEAD
+
 
     private void shootGun()
     {
 
-=======
+
     IEnumerator waitForKnifeChange()
     {
         yield return new WaitForSeconds(knifeChangeTime);
         canChangeKnife = true;
->>>>>>> ef2bb652136c40d39dc9fc4e86f49699ca3e9334
     }
 }
