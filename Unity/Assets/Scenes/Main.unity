@@ -4418,21 +4418,21 @@ MonoBehaviour:
   canChangeKnife: 1
   knifeChangeTime: 0.05
   knives:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 47b53f595cbd8b343a2e966a3fb0fe18, type: 2}
+  - {fileID: 11400000, guid: 0cc31e1a00f98be44b17c445012d36b1, type: 2}
+  - {fileID: 11400000, guid: 3d255255bada6254bb81221a74753591, type: 2}
+  - {fileID: 11400000, guid: 5e17c02993bb1824e87d506c4def5ced, type: 2}
+  - {fileID: 11400000, guid: 7e6603d022ea5984bbc377f14a044878, type: 2}
+  - {fileID: 11400000, guid: 7958997f8e93c39468e53c86808bfe2b, type: 2}
+  - {fileID: 11400000, guid: 01ecae797c98e244ab4f2cf4e77f639c, type: 2}
+  - {fileID: 11400000, guid: bb9d115a72b1be44d84756d74977999f, type: 2}
+  - {fileID: 11400000, guid: 508008a70b9f6bb4a8e2c796fbe42a0e, type: 2}
+  - {fileID: 11400000, guid: 8d4bed87c0b9b80459f42c76e5a2eb03, type: 2}
+  - {fileID: 11400000, guid: 6e547d7872484d44491e70936bf6ebe4, type: 2}
+  - {fileID: 11400000, guid: 5438d92d7c91f6e4cb0a7e06a420c19d, type: 2}
+  - {fileID: 11400000, guid: 900ca36f9caf9f546a47421ed16fcc3e, type: 2}
+  - {fileID: 11400000, guid: 6ac87258591576b469e9e57e3875bce4, type: 2}
+  - {fileID: 11400000, guid: 99a93895468a9724ab3a5ee0e663b9da, type: 2}
   guns: []
   knivesObjects:
   - {fileID: 1581460963841042, guid: 5f8e850841d1b664480c0b6cb0c4a10a, type: 2}

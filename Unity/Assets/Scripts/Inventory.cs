@@ -86,12 +86,13 @@ public class Inventory : MonoBehaviour {
             }
             canChangeKnife = false;
             StartCoroutine(waitForKnifeChange());
-        }
+        }if(knives[knifeIndex].getAmmo()!=0)
+                knives[knifeIndex].setAmmo(knives[knifeIndex].getAmmo()-1);
+            else
         if(Input.GetButtonDown("Fire1")) //uses left mouse click to fire the weapon
         {
-            //knivesObjects[knifeIndex].SetActive(false);
-            //Instantiate(knivesObjects[knifeIndex], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<Knife>().Init(PlayerController.player.aimDir, knivesObjects[knifeIndex], knifeIndex);
-            Debug.Log(knifeIndex+" "+knivesObjects.Length);
+            
+            
         }
     }
     private Weapon getCurWeapon() //gets the weapon on the index depending on which list is stored in curWeaponList
