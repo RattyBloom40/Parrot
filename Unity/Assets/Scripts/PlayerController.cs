@@ -79,8 +79,8 @@ public class PlayerController : MonoBehaviour {
         switch (status) {
             case Status.Normal:
                 Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // use the horizontal and vertical axes to create a vector with variable movement
-                anim.SetBool("Moving", movement.magnitude >= .01f);
                 rb2d.velocity = (movement.normalized * speed); // set the player speed to the current speed rather than adding or subtacting to eliminate acceleration and deceleration times
+                anim.SetBool("Moving", rb2d.velocity.magnitude >= .01f);
                 break;
             case Status.Dodging:
                 rb2d.velocity = dodge.normalized * speed * dodgeMulti;
