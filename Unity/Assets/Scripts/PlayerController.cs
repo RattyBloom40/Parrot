@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject entities;
     public ThrowKnife knifethrow;
+    //DJEGGIS WAS HERE
     public Vector2 dodge;
     public Vector2 aimDir;
     public float dodgeTime;
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 					Vector2 movement = new Vector2( Input.GetAxis( "Horizontal" ), Input.GetAxis( "Vertical" ) );
 					dodge = movement.normalized * speed;
                     status = Status.Dodging;
+                    anim.SetBool("Bird", true);
                     StartCoroutine(doADodge());
                     cam.freeze = true;
                 }
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator doADodge() {
         yield return new WaitForSeconds(dodgeTime);
+        anim.SetBool("Bird", false);
         status = Status.Normal;
         cam.freeze = false;
     }
