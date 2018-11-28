@@ -16,6 +16,25 @@ public class Inventory : MonoBehaviour
 
     public Weapon[] curWeaponList;
 
+    Rigidbody2D rb2D;
+    public float floatHeight;
+    public float liftForce;
+    public float damping;
+    public Vector2 aimDir;
+
+    private void Start()
+    {
+        rb2D = GetComponent<Rigidbody2D>();
+        aimDir = PlayerController.player.aimDir;
+    }
+
+    private void FixedUpdate()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position,aimDir);
+        if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
+            Debug.Log("Hit enemy");
+    }
+
     private void Update() //takes in input to switch the current weapon
     {
         if (Input.GetAxis("WeaponTypeSwitch") > .1f) //flips between which list you will be displaying and using as the current weapon
@@ -80,5 +99,10 @@ public class Inventory : MonoBehaviour
     private Weapon[] getCurWeaponList() // returns the current weapon list (Mostly to know what to display)
     {
         return curWeaponList;
+    }
+
+    private void shootGun()
+    {
+
     }
 }
