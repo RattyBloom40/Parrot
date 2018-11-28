@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//@author Andrew
 public class AttackManager : MonoBehaviour {
     private float reloadTime;
     private Weapon storedWeapon;
 
     private bool cooldown = false;
-
+    /*
     public AttackManager(Weapon weapon)
     {
         storedWeapon = weapon;
@@ -59,4 +60,5 @@ public class AttackManager : MonoBehaviour {
         yield return new WaitForSeconds(reloadTime);
         cooldown = false;
     }
+    */
 }

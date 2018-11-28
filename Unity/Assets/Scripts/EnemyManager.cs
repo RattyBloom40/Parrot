@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour {
         if (navMesh!=null)
             foreach (Thread.NavNode node in navMesh.nodes)
             {
-                Gizmos.DrawCube(node.position, Vector3.one * .05f);
+                Gizmos.DrawCube(node.position, Vector3.one * .5f);
                 foreach (Thread.NavNode adj in node.adjacentNodes)
                     Gizmos.DrawLine(node.position, adj.position);
             }
