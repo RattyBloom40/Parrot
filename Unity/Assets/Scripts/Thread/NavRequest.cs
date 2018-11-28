@@ -15,7 +15,7 @@ namespace Thread {
 
         public NavRequest(Vector2 origin, Vector2 goal, NavMesh mesh)
         {
-
+            NavMap map = new NavMap();
         }
     }
 

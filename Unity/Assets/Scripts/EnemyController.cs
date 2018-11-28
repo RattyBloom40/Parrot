@@ -9,6 +9,15 @@ using UnityEngine;
 //  @author Andrew
 public class EnemyController : MonoBehaviour {
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        for (int x = 0; x < path.Length; x++)
+        {
+            Gizmos.DrawSphere(path[x], .5f);
+        }
+    }
+
     public Vector2[] path; //maybe work as path?
     public float speed; //unique attributes
     public Weapon weapon;
@@ -21,7 +30,7 @@ public class EnemyController : MonoBehaviour {
 
     void Start()
     {
-        attackManager = new AttackManager(weapon);
+        //attackManager = new AttackManager(weapon);
         rb2d = GetComponent<Rigidbody2D>();
         enemyX = transform.position.x;
         enemyY = transform.position.y;
@@ -42,18 +51,22 @@ public class EnemyController : MonoBehaviour {
         Vector3 newDir;
         switch(state) {
             case State.Patrol:
-                if (PathTo(path[index]).magnitude < .5f){ //if pathTo returns current position *OR* past
-                    index = index >= path.Length-1 ? 0 : ++index; //if reached path point, go to next path point *ALSO* change aimDir towards next path point
+                if (path.Length > 0)
+                {
+                    if (PathTo(path[index]).magnitude < .5f)
+                    { //if pathTo returns current position *OR* past
+                        index = index >= path.Length - 1 ? 0 : ++index; //if reached path point, go to next path point *ALSO* change aimDir towards next path point
+                    }
+                    newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(path[index].x, path[index].y, 0), 100, 100);
+                    aimDir = -(newDir.normalized);
+                    pathTowards = PathTo(path[index]); //movement = towards player
                 }
-                newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(path[index].x, path[index].y, 0), 100, 100);
-                aimDir = -(newDir.normalized);
-                pathTowards = PathTo(path[index]); //movement = towards player
                 break;
             case State.HuntPlayer:
                 newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y, 0), 100, 100);
                 aimDir = -(newDir.normalized);
                 if (PathTo(PlayerController.player.transform.position, weapon).magnitude<.5f){ //path towards the player with weaponRange in between *ALSO* aimDir towards player
-                    attackManager.Attack(aimDir);
+                    //attackManager.Attack(aimDir);
                 }
                 else
                 {
