@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
-{
+public class Inventory : MonoBehaviour {
+    public bool canChangeKnife = true;
+    public float knifeChangeTime = 1f;
 
     public Weapon[] knives;
     public Weapon[] guns;
 
-    public GameObject[] knivesObjects;
-    public GameObject[] gunsObjects;
+    public GameObject[] knivesObjects;//all the throwable knives
+    public GameObject[] gunsObjects;//all of the guns
+
+    public GameObject[] thrownKnives; //includes JUST knives
+    public GameObject[] deadItems; //includes both GUNS and KNIVES
 
     public int knifeIndex = 0;
     public int gunIndex = 0;
 
     public Weapon[] curWeaponList;
 
+<<<<<<< HEAD
     Rigidbody2D rb2D;
     public float floatHeight;
     public float liftForce;
@@ -36,8 +41,24 @@ public class Inventory : MonoBehaviour
     }
 
     private void Update() //takes in input to switch the current weapon
+=======
+
+    ///////////////////////////////////////////
+    public SpriteRenderer m_SpriteRenderer;
+    Color m_NewColor;
+    float m_Red, m_Blue, m_Green;
+    public Sprite[] knivesSprites;
+    ///////////////////////////////////////////
+
+    void Start()
+>>>>>>> ef2bb652136c40d39dc9fc4e86f49699ca3e9334
     {
-        if (Input.GetAxis("WeaponTypeSwitch") > .1f) //flips between which list you will be displaying and using as the current weapon
+        curWeaponList = knives;
+    }
+
+    void Update() //takes in input to switch the current weapon
+    {
+        if (Input.GetAxis("WeaponTypeSwitch") > .1f) //flips between which list you will be displaying and using as the current weapon using q key
         {
             if (curWeaponList == knives)
             {
@@ -48,39 +69,53 @@ public class Inventory : MonoBehaviour
                 curWeaponList = knives;
             }
         }
-        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0) //Scrolls through the current weapon list moving UP
+        if (Mathf.Abs(Input.GetAxis("Mouse ScrollWheel")) >= .01f && canChangeKnife)
         {
-            if (curWeaponList == knives)
+            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0) //Scrolls through the current weapon list moving UP
             {
-                if (knifeIndex < knives.Length - 1)
-                    knifeIndex++;
-                else if (knifeIndex >= knives.Length - 1)
-                    knifeIndex = 0;
+                if (curWeaponList == knives)
+                {
+                    if (knifeIndex < knives.Length - 1)
+                        knifeIndex++;
+                    else if (knifeIndex >= knives.Length - 1)
+                        knifeIndex = 0;
+                    m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
+                }
+                else if (curWeaponList == guns)
+                {
+                    if (gunIndex < guns.Length - 1)
+                        gunIndex++;
+                    else
+                        gunIndex = 0;
+                }
             }
-            else if (curWeaponList == guns)
+            if (Input.GetAxisRaw("Mouse ScrollWheel") < 0) //Scrolls through the current weapon list moving DOWN
             {
-                if (gunIndex < guns.Length - 1)
-                    gunIndex++;
-                else
-                    gunIndex = 0;
+                if (curWeaponList == knives)
+                {
+                    if (knifeIndex > 0)
+                        knifeIndex--;
+                    else if (knifeIndex <= 0)
+                        knifeIndex = knives.Length - 1;
+                    m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
+                }
+                else if (curWeaponList == guns)
+                {
+                    if (gunIndex > 0)
+                        gunIndex--;
+                    else if (gunIndex <= 0)
+                        gunIndex = guns.Length - 1;
+                }
             }
-        }
-        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0) //Scrolls through the current weapon list moving DOWN
+            canChangeKnife = false;
+            StartCoroutine(waitForKnifeChange());
+        }if(knives[knifeIndex].getAmmo()!=0)
+                knives[knifeIndex].setAmmo(knives[knifeIndex].getAmmo()-1);
+            else
+        if(Input.GetButtonDown("Fire1")) //uses left mouse click to fire the weapon
         {
-            if (curWeaponList == knives)
-            {
-                if (knifeIndex > 0)
-                    knifeIndex--;
-                else if (knifeIndex <= 0)
-                    knifeIndex = knives.Length - 1;
-            }
-            else if (curWeaponList == guns)
-            {
-                if (gunIndex > 0)
-                    gunIndex--;
-                else if (gunIndex <= 0)
-                    gunIndex = guns.Length - 1;
-            }
+            
+            
         }
     }
     private Weapon getCurWeapon() //gets the weapon on the index depending on which list is stored in curWeaponList
@@ -95,14 +130,20 @@ public class Inventory : MonoBehaviour
         }
         return null;
     }
-
     private Weapon[] getCurWeaponList() // returns the current weapon list (Mostly to know what to display)
     {
         return curWeaponList;
     }
+<<<<<<< HEAD
 
     private void shootGun()
     {
 
+=======
+    IEnumerator waitForKnifeChange()
+    {
+        yield return new WaitForSeconds(knifeChangeTime);
+        canChangeKnife = true;
+>>>>>>> ef2bb652136c40d39dc9fc4e86f49699ca3e9334
     }
 }

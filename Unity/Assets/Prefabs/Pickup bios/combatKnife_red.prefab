@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1009341704897262}
+  m_RootGameObject: {fileID: 1104263448542680}
   m_IsPrefabAsset: 1
---- !u!1 &1009341704897262
+--- !u!1 &1104263448542680
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4320888253244974}
-  - component: {fileID: 212986542169709646}
-  - component: {fileID: 114278604268346168}
-  - component: {fileID: 50964624078583614}
-  - component: {fileID: 58870287479790052}
+  - component: {fileID: 4214568074871462}
+  - component: {fileID: 212739938053954632}
+  - component: {fileID: 114871553875357032}
+  - component: {fileID: 58889294961831198}
+  - component: {fileID: 50453050966963380}
   m_Layer: 0
-  m_Name: kunai_grey
+  m_Name: combatKnife_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4320888253244974
+--- !u!4 &4214568074871462
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009341704897262}
+  m_GameObject: {fileID: 1104263448542680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50964624078583614
+--- !u!50 &50453050966963380
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009341704897262}
+  m_GameObject: {fileID: 1104263448542680}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -63,12 +63,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58870287479790052
+--- !u!58 &58889294961831198
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009341704897262}
+  m_GameObject: {fileID: 1104263448542680}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -77,28 +77,24 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.6
---- !u!114 &114278604268346168
+  m_Radius: 0.5
+--- !u!114 &114871553875357032
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009341704897262}
+  m_GameObject: {fileID: 1104263448542680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f36383f88fab1204dabcbe915a8813f3, type: 3}
+  m_Script: {fileID: 11500000, guid: aea57f8798b3852449580c507592ea6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 2000
-  speed: 25
-  item: {fileID: 0}
-  knifeNum: 0
---- !u!212 &212986542169709646
+--- !u!212 &212739938053954632
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009341704897262}
+  m_GameObject: {fileID: 1104263448542680}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -128,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c8033bd803f460f44b04a822e17201ba, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 376ef3a4de879ed4f9dcde6e2e6e8124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
