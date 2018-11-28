@@ -4,7 +4,13 @@ using UnityEngine;
 
 namespace Thread {
     public class NavNode {
-        Vector2 position;
-        List<NavNode> adjacentNodes;
+        public Vector2 position;
+        public List<NavNode> adjacentNodes;
+
+        public NavNode(Vector2 pos)
+        {
+            adjacentNodes = new List<NavNode>();
+            position = pos;
+        }
     }
 }

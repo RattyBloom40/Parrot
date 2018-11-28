@@ -13,12 +13,13 @@ namespace Thread {
             }
         }
 
+        public NavRequest(Vector2 origin, Vector2 goal, NavMesh mesh)
+        {
 
+        }
     }
 
     class NavMap {
-        NavMap(NavMesh mesh) {
-
-        }
+        Dictionary<NavNode, int> nodeNumbers = new Dictionary<NavNode, int>();
     }
 }
