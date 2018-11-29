@@ -26,10 +26,19 @@ public class Inventory : MonoBehaviour {
     public float damping;
     public Vector2 aimDir;
 
+    ///////////////////////////////////////
+    public SpriteRenderer m_SpriteRenderer;
+    Color m_NewColor;
+    float m_Red, m_Blue, m_Green;
+    public Sprite[] knivesSprites;
+    public Sprite[] gunsSprites;
+    //////////////////////////////////////////////
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         aimDir = PlayerController.player.aimDir;
+        curWeaponList = guns;
     }
 
     private void FixedUpdate()
@@ -39,31 +48,21 @@ public class Inventory : MonoBehaviour {
             Debug.Log("Hit enemy");
     }
 
-
-    ///////////////////////////////////////////
-    public SpriteRenderer m_SpriteRenderer;
-    Color m_NewColor;
-    float m_Red, m_Blue, m_Green;
-    public Sprite[] knivesSprites;
-    ///////////////////////////////////////////
-
-    void Start()
-    {
-        curWeaponList = knives;
-    }
-
     void Update() //takes in input to switch the current weapon
     {
         if (Input.GetAxis("WeaponTypeSwitch") > .1f) //flips between which list you will be displaying and using as the current weapon using q key
         {
             if (curWeaponList == knives)
             {
-                curWeaponList = guns;
+                curWeaponList = guns;Debug.Log("switched to guns");
+                m_SpriteRenderer.sprite = gunsSprites[gunIndex];
             }
             else if (curWeaponList == guns)
             {
                 curWeaponList = knives;
+                m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
             }
+            Debug.Log("Switched lists");
         }
         if (Mathf.Abs(Input.GetAxis("Mouse ScrollWheel")) >= .01f && canChangeKnife)
         {
@@ -83,6 +82,7 @@ public class Inventory : MonoBehaviour {
                         gunIndex++;
                     else
                         gunIndex = 0;
+                    m_SpriteRenderer.sprite = gunsSprites[gunIndex];
                 }
             }
             if (Input.GetAxisRaw("Mouse ScrollWheel") < 0) //Scrolls through the current weapon list moving DOWN
@@ -130,11 +130,6 @@ public class Inventory : MonoBehaviour {
     {
         return curWeaponList;
     }
-
-
-    private void shootGun()
-    {
-
 
     IEnumerator waitForKnifeChange()
     {
