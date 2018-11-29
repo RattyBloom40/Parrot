@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    public Vector2[] path; //maybe work as path?
+    public Vector2[] path; //maybe work as path!
     public float speed; //unique attributes
     public Weapon weapon;
 
@@ -26,7 +26,12 @@ public class EnemyController : MonoBehaviour {
     private float enemyY;
     private Rigidbody2D rb2d;
     private Vector2 aimDir;
+
     private AttackManager attackManager;
+
+    private RaycastHit2D toPlayer; //ray from enemy to player
+    private Vector2 playerPos; //stores last seen position
+    private bool search; //used to keep track of last seen position
 
     void Start()
     {
@@ -34,6 +39,7 @@ public class EnemyController : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         enemyX = transform.position.x;
         enemyY = transform.position.y;
+        search = true;
     }
 
     private int index = 0; //used for movement loop
@@ -49,7 +55,7 @@ public class EnemyController : MonoBehaviour {
     void Update() {
         pathTowards = Vector2.zero;
         Vector3 newDir;
-        switch(state) {
+        switch(state) { //different behaviors for movement
             case State.Patrol:
                 if (path.Length > 0)
                 {
@@ -61,6 +67,11 @@ public class EnemyController : MonoBehaviour {
                     aimDir = -(newDir.normalized);
                     pathTowards = PathTo(path[index]); //movement = towards player
                 }
+                toPlayer = Physics2D.Raycast(transform.position, PlayerController.player.transform.position);
+                if (toPlayer.collider.gameObject.GetComponent<PlayerController>() != null)
+                {
+                    state = State.HuntPlayer; //hunt down mr. player when "see"
+                }
                 break;
             case State.HuntPlayer:
                 newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y, 0), 100, 100);
@@ -71,6 +82,22 @@ public class EnemyController : MonoBehaviour {
                 else
                 {
                     pathTowards = (PathTo(PlayerController.player.transform.position, weapon)); //movement = towards player
+                }
+                toPlayer = Physics2D.Raycast(transform.position, PlayerController.player.transform.position);
+                if (toPlayer.collider.gameObject.GetComponent<PlayerController>() == null && !search && Vector2.Distance(transform.position,playerPos)!=0)
+                {
+                    pathTowards = playerPos;//move towards last seen position
+                }
+                else if (toPlayer.collider.gameObject.GetComponent<PlayerController>() == null && !search && Vector2.Distance(transform.position, playerPos) == 0)
+                {
+                    search = true;
+                    state = State.Patrol; //return to patrol
+                }
+                else if (toPlayer.collider.gameObject.GetComponent<PlayerController>() == null && search)
+                {
+                    playerPos = new Vector2(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y);
+                    search = false;
+                    //set last seen position
                 }
                 break;
         }
