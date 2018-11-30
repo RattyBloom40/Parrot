@@ -13,6 +13,20 @@ TextureImporter:
     21300016: char_left2
     21300018: char_left3
     21300020: char_left4
+    21300022: ParrotRight
+    21300024: ParrotRight0
+    21300026: ParrotRight1
+    21300028: ParrotRight2
+    21300030: ParrotRight3
+    21300032: ParrotParrotRight0
+    21300034: ParrotParrotRight1
+    21300036: ParrotLeft
+    21300038: ParrotLeft0
+    21300040: ParrotLeft1
+    21300042: ParrotLeft2
+    21300044: ParrotLeft3
+    21300046: ParrotParrotLeft0
+    21300048: ParrotParrotLeft1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -106,27 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: char_front
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 576
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2239db979fa28e4c8431e4df942c2ee
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: char_right
+      name: ParrotRight
       rect:
         serializedVersion: 2
         x: 0
@@ -134,19 +128,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653de1e60ae87b943afb6522ddbae893
+      spriteID: d3982366f45830b43a860a99de7813e4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_right1
+      name: ParrotRight0
       rect:
         serializedVersion: 2
         x: 64
@@ -154,19 +148,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1210d372a630d4a46bb3783f20aa36c4
+      spriteID: da015723447db3745bd0e113c412c455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_right2
+      name: ParrotRight1
       rect:
         serializedVersion: 2
         x: 128
@@ -174,19 +168,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8a9a17668789964e95eac36c5f07f65
+      spriteID: 2f78d9cbd7e39b544a5d4a55d50bf8d7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_right3
+      name: ParrotRight2
       rect:
         serializedVersion: 2
         x: 192
@@ -194,19 +188,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dd47f32e28c2764fb87d3750271314c
+      spriteID: 7d358acee23ab5a448f1381586abc664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_right4
+      name: ParrotRight3
       rect:
         serializedVersion: 2
         x: 256
@@ -214,19 +208,59 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3398c0d513970824ea2f28b5be1270f0
+      spriteID: fa633a7470a56e04a844760118377e6a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_left
+      name: ParrotParrotRight0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc3b84ddae2a6642bb3b29ca4367f32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ParrotParrotRight1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2fde7b34667f645b5e516ea44e6754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ParrotLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -234,19 +268,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f062c1edc87da74797ec264571f42dd
+      spriteID: 33d45afa843bc38468412ae0b545f274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_left1
+      name: ParrotLeft0
       rect:
         serializedVersion: 2
         x: 64
@@ -254,19 +288,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f3bf338929bd745a6604a9de02b638
+      spriteID: 4222f56f85e389944b85dd9e2003e83e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_left2
+      name: ParrotLeft1
       rect:
         serializedVersion: 2
         x: 128
@@ -274,39 +308,39 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c062e64fd32d3d41ae4be36b7817f30
+      spriteID: abbbf53408c706342b4611060c0664fd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_left3
+      name: ParrotLeft2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
+        x: 191
+        y: 385
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b867776040a90c8428996a59744637bb
+      spriteID: 94badf527a8f9964392f94b03c674ac4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_left4
+      name: ParrotLeft3
       rect:
         serializedVersion: 2
         x: 256
@@ -314,13 +348,53 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8697e3f83aeec524794c2940b7dcaab7
+      spriteID: aad6214b475a55645a04485e31ff87ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ParrotParrotLeft0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa94daf43181be54dbf48b109d094133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ParrotParrotLeft1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0f4a17e4770744ca041345aaf7416b
       vertices: []
       indices: 
       edges: []

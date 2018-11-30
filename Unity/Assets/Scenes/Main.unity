@@ -5277,8 +5277,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 527803153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: -10, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 762682480}
   - {fileID: 890050763}
@@ -5320,12 +5320,12 @@ MonoBehaviour:
   aimRing: {fileID: 890050762}
   cam: {fileID: 741061305}
   speed: 12.5
-  dodgeMulti: 1.5
+  dodgeMulti: 3
   entities: {fileID: 896726093}
   knifethrow: {fileID: 0}
   dodge: {x: 0, y: 0}
   aimDir: {x: 0, y: 0}
-  dodgeTime: 0.25
+  dodgeTime: 0.5
 --- !u!1 &601254847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5559,12 +5559,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300012, guid: fb9f69b4d42b3de45b5db046e0a31c70, type: 3}
+  m_Sprite: {fileID: 21300036, guid: fb9f69b4d42b3de45b5db046e0a31c70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

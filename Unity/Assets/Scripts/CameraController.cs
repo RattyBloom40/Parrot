@@ -10,5 +10,7 @@ public class CameraController : MonoBehaviour {
 	void FixedUpdate () {
         if (!freeze)
             transform.position = Vector3.Lerp(transform.position, target.transform.position, stickyness);
-	}
+        else
+            transform.position = Vector3.Lerp(transform.position, target.transform.position, stickyness/2);
+    }
 }
