@@ -65,10 +65,10 @@ public class EnemyController : MonoBehaviour {
                     }
                     newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(path[index].x, path[index].y, 0), 100, 100);
                     aimDir = -(newDir.normalized);
-                    pathTowards = PathTo(path[index]); //movement = towards player
+                    pathTowards = PathTo(path[index]); //movement = towards path
                 }
                 toPlayer = Physics2D.Raycast(transform.position, PlayerController.player.transform.position);
-                if (toPlayer.collider.gameObject.GetComponent<PlayerController>() != null)
+                if (toPlayer.collider!=null && toPlayer.collider.gameObject.GetComponent<PlayerController>() != null)
                 {
                     state = State.HuntPlayer; //hunt down mr. player when "see"
                 }
