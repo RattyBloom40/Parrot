@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour {
     public Vector2[] path; //maybe work as path!
     public float speed; //unique attributes
     public Weapon weapon;
+    public float baseHealth;
 
     private float enemyX; //used for position
     private float enemyY;
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour {
     private Vector2 aimDir;
 
     private AttackManager attackManager;
+    private float currHealth;
 
     private RaycastHit2D toPlayer; //ray from enemy to player
     private Vector2 playerPos; //stores last seen position
@@ -40,6 +42,7 @@ public class EnemyController : MonoBehaviour {
         enemyX = transform.position.x;
         enemyY = transform.position.y;
         search = true;
+        currHealth = baseHealth;
     }
 
     private int index = 0; //used for movement loop
