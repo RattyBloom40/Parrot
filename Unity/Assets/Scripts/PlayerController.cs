@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
     float playerY;
 
     public GameObject entities;
-    public ThrowKnife knifethrow;
+    public Inventory inventory;
     public Vector2 dodge;
     public Vector2 aimDir;
 

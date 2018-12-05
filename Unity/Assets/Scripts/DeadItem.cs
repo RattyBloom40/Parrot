@@ -12,7 +12,7 @@ public class DeadItem : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player"))
         {
-            //ThrowKnife.instance.inventoryStatus[knifeNum]++;
+            PlayerController.player.inventory.knives[knifeNum].ammo++;
             Destroy(gameObject);
         }
         
