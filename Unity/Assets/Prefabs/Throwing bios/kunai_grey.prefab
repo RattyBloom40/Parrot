@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4320888253244974
 Transform:
   m_ObjectHideFlags: 1
@@ -91,6 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 2000
   speed: 25
+  item: {fileID: 0}
+  knifeNum: 0
 --- !u!212 &212986542169709646
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -38,8 +38,12 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject entities;
     public ThrowKnife knifethrow;
+    //DJEGGIS WAS HERE
     public Vector2 dodge;
     public Vector2 aimDir;
+
+    Vector3 newDir;
+
     public float dodgeTime;
 
     void Start () {
@@ -56,13 +60,14 @@ public class PlayerController : MonoBehaviour {
 				playerX = transform.position.x;
 				playerY = transform.position.y;
                 anim.SetBool("Right", mouseX >= playerX);
-				Vector3 newDir = Vector3.RotateTowards( -transform.right, new Vector3( playerX, playerY, 0 ) - new Vector3( mouseX, mouseY, 0 ), 100, 100 );
+				newDir = Vector3.RotateTowards( -transform.right, new Vector3( playerX, playerY, 0 ) - new Vector3( mouseX, mouseY, 0 ), 100, 100 );
 				aimDir = -(newDir.normalized);
 				aimRing.transform.rotation = Quaternion.FromToRotation( Vector3.left, newDir );
                 if(Input.GetButtonDown("Fire2")) {
 					Vector2 movement = new Vector2( Input.GetAxis( "Horizontal" ), Input.GetAxis( "Vertical" ) );
 					dodge = movement.normalized * speed;
                     status = Status.Dodging;
+                    anim.SetBool("Bird", true);
                     StartCoroutine(doADodge());
                     cam.freeze = true;
                 }
@@ -77,8 +82,8 @@ public class PlayerController : MonoBehaviour {
         switch (status) {
             case Status.Normal:
                 Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // use the horizontal and vertical axes to create a vector with variable movement
-                anim.SetBool("Moving", movement.magnitude >= .01f);
                 rb2d.velocity = (movement.normalized * speed); // set the player speed to the current speed rather than adding or subtacting to eliminate acceleration and deceleration times
+                anim.SetBool("Moving", rb2d.velocity.magnitude >= .01f);
                 break;
             case Status.Dodging:
                 rb2d.velocity = dodge.normalized * speed * dodgeMulti;
@@ -88,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator doADodge() {
         yield return new WaitForSeconds(dodgeTime);
+        anim.SetBool("Bird", false);
         status = Status.Normal;
         cam.freeze = false;
     }
