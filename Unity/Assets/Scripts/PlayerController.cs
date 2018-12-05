@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour {
     //DJEGGIS WAS HERE
     public Vector2 dodge;
     public Vector2 aimDir;
+
+    Vector3 newDir;
+
     public float dodgeTime;
 
     void Start () {
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 				playerX = transform.position.x;
 				playerY = transform.position.y;
                 anim.SetBool("Right", mouseX >= playerX);
-				Vector3 newDir = Vector3.RotateTowards( -transform.right, new Vector3( playerX, playerY, 0 ) - new Vector3( mouseX, mouseY, 0 ), 100, 100 );
+				newDir = Vector3.RotateTowards( -transform.right, new Vector3( playerX, playerY, 0 ) - new Vector3( mouseX, mouseY, 0 ), 100, 100 );
 				aimDir = -(newDir.normalized);
 				aimRing.transform.rotation = Quaternion.FromToRotation( Vector3.left, newDir );
                 if(Input.GetButtonDown("Fire2")) {
