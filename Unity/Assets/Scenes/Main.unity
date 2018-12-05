@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52489450}
   - component: {fileID: 52489451}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon_Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4341,7 +4341,7 @@ GameObject:
   - component: {fileID: 527803156}
   - component: {fileID: 527803155}
   - component: {fileID: 527803157}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4492,6 +4492,8 @@ MonoBehaviour:
   - {fileID: 21300016, guid: c8033bd803f460f44b04a822e17201ba, type: 3}
   - {fileID: 21300010, guid: c8033bd803f460f44b04a822e17201ba, type: 3}
   - {fileID: 21300008, guid: c8033bd803f460f44b04a822e17201ba, type: 3}
+  gunsSprites:
+  - {fileID: 21300000, guid: f493b29012ea950408422857e567130f, type: 3}
 --- !u!1 &741061301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,7 +4597,7 @@ GameObject:
   - component: {fileID: 762682481}
   - component: {fileID: 762682483}
   - component: {fileID: 762682482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphics
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4703,7 +4705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890050763}
   - component: {fileID: 890050764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Aim Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4885,7 +4887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267219353}
   - component: {fileID: 1267219354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: scissors_orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4960,7 +4962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1360513469}
   - component: {fileID: 1360513470}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: KnifeHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5003,7 +5005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393437872}
   - component: {fileID: 1393437873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kunai_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5078,7 +5080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1484863619}
   - component: {fileID: 1484863620}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: scissors_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5153,6 +5155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1500132165}
   - component: {fileID: 1500132166}
+  - component: {fileID: 1500132167}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -5219,6 +5222,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1500132167
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1500132164}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &1639993623
 GameObject:
   m_ObjectHideFlags: 0
@@ -5296,7 +5314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679054484}
   - component: {fileID: 1679054485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

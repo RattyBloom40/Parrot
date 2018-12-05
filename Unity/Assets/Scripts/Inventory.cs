@@ -38,19 +38,13 @@ public class Inventory : MonoBehaviour {
     {
         rb2D = GetComponent<Rigidbody2D>();
         aimDir = PlayerController.player.aimDir;
-        curWeaponList = guns;
-    }
-
-    private void FixedUpdate()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position,aimDir);
-        if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
-            Debug.Log("Hit enemy");
+        curWeaponList = knives;
     }
 
     void Update() //takes in input to switch the current weapon
     {
-        if (Input.GetAxis("WeaponTypeSwitch") > .1f) //flips between which list you will be displaying and using as the current weapon using q key
+        aimDir = PlayerController.player.aimDir;
+        if (Input.GetButtonDown("WeaponTypeSwitch")) //flips between which list you will be displaying and using as the current weapon using q key
         {
             if (curWeaponList == knives)
             {
@@ -105,12 +99,27 @@ public class Inventory : MonoBehaviour {
             }
             canChangeKnife = false;
             StartCoroutine(waitForKnifeChange());
-        }if(knives[knifeIndex].getAmmo()!=0)
-                knives[knifeIndex].setAmmo(knives[knifeIndex].getAmmo()-1);
-            else
+        }
         if(Input.GetButtonDown("Fire1")) //uses left mouse click to fire the weapon
         {
-            
+            Debug.Log("Told to shoot");
+            if(curWeaponList == knives)
+            {
+                if (knives[knifeIndex].getAmmo() != 0)
+                    knives[knifeIndex].setAmmo(knives[knifeIndex].getAmmo() - 1);
+            }
+            if(curWeaponList == guns)
+            {
+                Debug.Log("Shooting gun");
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, 100, LayerMask.GetMask("Default"));
+                if (hit.collider == null)
+                    Debug.Log("Hit nothing");
+                if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
+                    Debug.Log("Hit enemy");
+                else if(hit.collider!=null)
+                    Debug.Log("Hit " + hit.collider.gameObject.name);
+                Debug.Log(aimDir.ToString());
+            }
             
         }
     }
@@ -135,5 +144,11 @@ public class Inventory : MonoBehaviour {
     {
         yield return new WaitForSeconds(knifeChangeTime);
         canChangeKnife = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, aimDir));
     }
 }
