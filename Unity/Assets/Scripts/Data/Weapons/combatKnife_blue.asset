@@ -15,7 +15,7 @@ MonoBehaviour:
   magSize: 0
   fireRate: 0
   weaponRange: 0
-  ammo: 47
+  ammo: 5
   damageType: 0
   type: 0
   knifePrefab: {fileID: 0}

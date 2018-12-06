@@ -55,7 +55,7 @@ public class Inventory : MonoBehaviour
         //Code that sets the png to the next available guns if the ammo of the current png = 0
         //
         //
-        if (curWeaponList == knives && knives[knifeIndex].getAmmo() == 0)
+        if (curWeaponList == knives && knives[knifeIndex].getAmmo() == 0||hasKnives==false)
         {
             //Debug.Log("in the if");
             for (int cur = 0; cur < knives.Length; cur++)
@@ -150,7 +150,7 @@ public class Inventory : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1")) //uses left mouse click to fire the weapon
         {
-            Debug.Log("in the shoot method");
+            Debug.Log(hasKnives);
             if (curWeaponList == knives && hasKnives == true)
             {
                 Debug.Log("in the method");
