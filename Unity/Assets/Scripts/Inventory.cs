@@ -79,8 +79,8 @@ public class Inventory : MonoBehaviour
         //
         //
         //
-
-        if (Input.GetAxis("WeaponTypeSwitch") > 1f) //flips between which list you will be displaying and using as the current weapon using q key
+        aimDir = PlayerController.player.aimDir;
+        if (Input.GetButtonDown("WeaponTypeSwitch")) //flips between which list you will be displaying and using as the current weapon using q key
         {
             if (curWeaponList == knives)
             {
@@ -165,6 +165,19 @@ public class Inventory : MonoBehaviour
                     Debug.Log("I am stupid"+" on knife "+knifeIndex+" "+knives[knifeIndex].name+knives[knifeIndex].ammo);
                 }
             }
+            if(curWeaponList == guns)
+            {
+                Debug.Log("Shooting gun");
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, 100, LayerMask.GetMask("Default"));
+                if (hit.collider == null)
+                    Debug.Log("Hit nothing");
+                if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
+                    Debug.Log("Hit enemy");
+                else if(hit.collider!=null)
+                    Debug.Log("Hit " + hit.collider.gameObject.name);
+                Debug.Log(aimDir.ToString());
+            }
+            
         }
         
     }
@@ -189,5 +202,11 @@ public class Inventory : MonoBehaviour
     {
         yield return new WaitForSeconds(knifeChangeTime);
         canChangeKnife = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(new Ray(transform.position, aimDir));
     }
 }
