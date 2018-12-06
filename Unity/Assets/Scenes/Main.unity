@@ -4341,6 +4341,7 @@ GameObject:
   - component: {fileID: 527803156}
   - component: {fileID: 527803155}
   - component: {fileID: 527803157}
+  - component: {fileID: 527803158}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4494,6 +4495,21 @@ MonoBehaviour:
   - {fileID: 21300008, guid: c8033bd803f460f44b04a822e17201ba, type: 3}
   gunsSprites:
   - {fileID: 21300000, guid: f493b29012ea950408422857e567130f, type: 3}
+--- !u!70 &527803158
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527803153}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &741061301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,7 +4611,6 @@ GameObject:
   m_Component:
   - component: {fileID: 762682480}
   - component: {fileID: 762682481}
-  - component: {fileID: 762682483}
   - component: {fileID: 762682482}
   m_Layer: 8
   m_Name: Graphics
@@ -4681,21 +4696,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &762682483
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 762682479}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!1 &890050762
 GameObject:
   m_ObjectHideFlags: 0
@@ -5155,7 +5155,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1500132165}
   - component: {fileID: 1500132166}
-  - component: {fileID: 1500132167}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -5222,21 +5221,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1500132167
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1500132164}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!1 &1639993623
 GameObject:
   m_ObjectHideFlags: 0
@@ -5247,6 +5231,7 @@ GameObject:
   - component: {fileID: 1639993624}
   - component: {fileID: 1639993625}
   - component: {fileID: 1639993626}
+  - component: {fileID: 1639993627}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -5305,6 +5290,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &1639993627
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639993623}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &1679054483
 GameObject:
   m_ObjectHideFlags: 0
