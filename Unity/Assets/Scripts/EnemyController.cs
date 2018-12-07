@@ -79,13 +79,13 @@ public class EnemyController : MonoBehaviour {
             case State.HuntPlayer:
                 newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y, 0), 100, 100);
                 aimDir = -(newDir.normalized);
-                if (PathTo(PlayerController.player.transform.position, weapon).magnitude<.5f){ //path towards the player with weaponRange in between *ALSO* aimDir towards player
+                /*if (PathTo(PlayerController.player.transform.position, weapon).magnitude<.5f){ //path towards the player with weaponRange in between *ALSO* aimDir towards player
                     //attackManager.Attack(aimDir);
                 }
                 else
-                {
-                    pathTowards = (PathTo(PlayerController.player.transform.position, weapon)); //movement = towards player
-                }
+                {*/
+                    pathTowards = (PathTo(PlayerController.player.transform.position)); //movement = towards player
+                //}
                 toPlayer = Physics2D.Raycast(transform.position, PlayerController.player.transform.position);
                 if (toPlayer.collider.gameObject.GetComponent<PlayerController>() == null && !search && Vector2.Distance(transform.position,playerPos)!=0)
                 {
@@ -115,13 +115,14 @@ public class EnemyController : MonoBehaviour {
     {
         //give pathPoint towards place w/ regards to speed and walls
         //use NavMesh
+        Thread.NavRequest req = new Thread.NavRequest(transform.position,place,EnemyManager.eManager.navMesh);
         return place; //when reach *OR* past pathPoint
     }
 
-    Vector2 PathTo(Vector2 place, Weapon weapon)
+    /*Vector2 PathTo(Vector2 place, Weapon weapon)
     {
         //give pathPoint towards place w/ regards to speed and walls and weaponRange
         //use NavMesh
         return place; //when reach *OR* past optimal range
-    }
+    }*/
 }

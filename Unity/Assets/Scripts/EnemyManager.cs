@@ -5,10 +5,17 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour {
     Thread.NavMesh navMesh;
 
+
+    public static EnemyManager eManager;
+
     public Vector2 navOrigin;
 
     void Awake()
     {
+        if (eManager == null)
+            eManager = this;
+        else
+            Debug.Log("Error: 2 EnemyManagers active");
         navMesh = new Thread.NavMesh(navOrigin, gameObject);
     }
 
