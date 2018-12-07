@@ -44,17 +44,9 @@ public class Inventory : MonoBehaviour
         PlayerController.player.inventory = this;
     }
 
-    private void FixedUpdate()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir);
-        if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
-            Debug.Log("Hit enemy");
-    }
     void Update() //takes in input to switch the current weapon
     {
         //Code that sets the png to the next available guns if the ammo of the current png = 0
-        //
-        //
         if (curWeaponList == knives && knives[knifeIndex].getAmmo() == 0||hasKnives==false)
         {
             //Debug.Log("in the if");
@@ -84,7 +76,7 @@ public class Inventory : MonoBehaviour
         {
             if (curWeaponList == knives)
             {
-                curWeaponList = guns; Debug.Log("switched to guns");
+                curWeaponList = guns;
                 m_SpriteRenderer.sprite = gunsSprites[gunIndex];
             }
             else if (curWeaponList == guns)
@@ -92,7 +84,6 @@ public class Inventory : MonoBehaviour
                 curWeaponList = knives;
                 m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
             }
-            Debug.Log("Switched lists");
             for (int cur = 0; cur < knivesObjects.Length; cur++)
             {
                 if (knives[cur].getAmmo() > 0)
@@ -150,7 +141,7 @@ public class Inventory : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1")) //uses left mouse click to fire the weapon
         {
-            Debug.Log(hasKnives);
+            //Debug.Log(hasKnives);
             if (curWeaponList == knives && hasKnives == true)
             {
                 Debug.Log("in the method");
@@ -167,19 +158,11 @@ public class Inventory : MonoBehaviour
             }
             if(curWeaponList == guns)
             {
-                Debug.Log("Shooting gun");
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, 100, LayerMask.GetMask("Default"));
-                if (hit.collider == null)
-                    Debug.Log("Hit nothing");
-                if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
-                    Debug.Log("Hit enemy");
-                else if(hit.collider!=null)
-                    Debug.Log("Hit " + hit.collider.gameObject.name);
-                Debug.Log(aimDir.ToString());
+                if(hit.collider!=null && hit.collider.gameObject.GetComponent<EnemyController>() != null)
+                    Debug.Log("Hit: " + hit.collider.gameObject.name);
             }
-            
         }
-        
     }
     private Weapon getCurWeapon() //gets the weapon on the index depending on which list is stored in curWeaponList
     {
