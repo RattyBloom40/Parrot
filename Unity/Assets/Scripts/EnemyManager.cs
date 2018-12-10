@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour {
-    Thread.NavMesh navMesh;
-
+    public Thread.NavMesh navMesh;
 
     public static EnemyManager eManager;
 
