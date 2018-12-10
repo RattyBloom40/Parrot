@@ -116,6 +116,7 @@ public class EnemyController : MonoBehaviour {
         //give pathPoint towards place w/ regards to speed and walls
         //use NavMesh
         Thread.NavRequest req = new Thread.NavRequest(transform.position,place,EnemyManager.eManager.navMesh);
+        place = req.NextPos(place);
         return place; //when reach *OR* past pathPoint
     }
 
