@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knife : MonoBehaviour {
+public class KnifeInThrow : MonoBehaviour {
     public float rotateSpeed;
     public float speed;
     public GameObject item;
@@ -20,7 +20,7 @@ public class Knife : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (!other.CompareTag("Player")&&other.gameObject.GetComponent<DeadItem>()==null&&other.gameObject.GetComponent<Knife>()==null) {
+        if (!other.CompareTag("Player")&&other.gameObject.GetComponent<DeadItem>()==null&&other.gameObject.GetComponent<KnifeInThrow>()==null) {
             GameObject pickup = Instantiate(item,transform.position,Quaternion.identity,PlayerController.player.entities.transform);
             pickup.GetComponent<DeadItem>().SetKnifeNum(knifeNum);
             Destroy(gameObject);

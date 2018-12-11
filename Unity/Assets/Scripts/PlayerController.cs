@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject entities;
     public ThrowKnife knifethrow;
-    //DJEGGIS WAS HERE
+    public Inventory inventory;
     public Vector2 dodge;
     public Vector2 aimDir;
 
