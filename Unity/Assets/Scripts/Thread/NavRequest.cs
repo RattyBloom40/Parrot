@@ -4,6 +4,13 @@ using UnityEngine;
 
 namespace Thread {
     public class NavRequest {
+        public enum State{
+            Pathfind,
+            GetToEnd
+        }
+
+        State state;
+
         bool done;
         public bool isFinished {
             get {
@@ -19,6 +26,7 @@ namespace Thread {
         public NavRequest(Vector2 origin, Vector2 goal, NavMesh mesh) {
             start = null;
             end = null;
+            state = State.Pathfind;
             foreach (NavNode n in mesh.nodes) {
                 if (start == null || Vector2.Distance(start.position, origin) > Vector2.Distance(n.position, origin))
                     start = n;
@@ -31,7 +39,7 @@ namespace Thread {
 
         }
 
-        Vector2 NextPos(Vector2 currentPos) {
+        public Vector2 NextPos(Vector2 currentPos) {
             map = new NavMap();
             BuildNavMap(start,0);
             NavNode[] array = new NavNode[1];
