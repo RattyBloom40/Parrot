@@ -171,6 +171,20 @@ public class Inventory : MonoBehaviour
                     }
                 }
             }
+            if (curWeaponList == knives && hasKnives == true)
+            {
+                //Debug.Log("in the method");
+                if (knives[knifeIndex].getAmmo() >= 1)
+                {
+                    //Debug.Log("Cool Bios");
+                    knives[knifeIndex].setAmmo(knives[knifeIndex].getAmmo() - 1);
+                    Instantiate(knivesObjects[knifeIndex], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<KnifeInThrow>().Init(PlayerController.player.aimDir, deadItems[knifeIndex], knifeIndex);
+                }
+                if (knives[knifeIndex].getAmmo() == 0)
+                {
+                    //Debug.Log("I am stupid"+" on knife "+knifeIndex+" "+knives[knifeIndex].name+knives[knifeIndex].ammo);
+                }
+            }
             if(curWeaponList == guns)
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, 100, LayerMask.GetMask("Default"));
