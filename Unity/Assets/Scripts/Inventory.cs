@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     public bool canChangeKnife = true;
     public float knifeChangeTime = 1f;
     public bool hasKnives = true;
+
+    public Text HUD;
 
     public Weapon[] knives;
     public Weapon[] guns;
@@ -43,15 +46,13 @@ public class Inventory : MonoBehaviour
         m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
         PlayerController.player.inventory = this;
     }
-
-    private void FixedUpdate()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir);
-        if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
-            Debug.Log("Hit enemy");
-    }
     void Update() //takes in input to switch the current weapon
     {
+        //Code that tells you which weapon and how much ammo
+        if(curWeaponList==knives)
+            HUD.text = (knives[knifeIndex].name+": "+knives[knifeIndex].ammo);
+        //
+
         //Code that sets the png to the next available guns if the ammo of the current png = 0
         //
         //
@@ -71,8 +72,9 @@ public class Inventory : MonoBehaviour
                 {
                     knifeIndex = cur;
                     hasKnives = true;
-                    //Debug.Log(knifeIndex);
+                    Debug.Log(knifeIndex);
                     m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
+                    break;
                 }
             }
         }
@@ -84,7 +86,7 @@ public class Inventory : MonoBehaviour
         {
             if (curWeaponList == knives)
             {
-                curWeaponList = guns; Debug.Log("switched to guns");
+                curWeaponList = guns; //Debug.Log("switched to guns");
                 m_SpriteRenderer.sprite = gunsSprites[gunIndex];
             }
             else if (curWeaponList == guns)
@@ -92,7 +94,7 @@ public class Inventory : MonoBehaviour
                 curWeaponList = knives;
                 m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
             }
-            Debug.Log("Switched lists");
+            //Debug.Log("Switched lists");
             for (int cur = 0; cur < knivesObjects.Length; cur++)
             {
                 if (knives[cur].getAmmo() > 0)
@@ -112,9 +114,9 @@ public class Inventory : MonoBehaviour
             {
                 if (curWeaponList == knives)
                 {
-                    if (knifeIndex < knives.Length - 1)
+                    if (knifeIndex < knives.Length - 1&&knives[knifeIndex+1].getAmmo()!=0)
                         knifeIndex++;
-                    else if (knifeIndex >= knives.Length - 1)
+                    else if (knifeIndex >= knives.Length - 1&& knives[0].getAmmo() != 0)
                         knifeIndex = 0;
                     m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
                 }
@@ -131,9 +133,9 @@ public class Inventory : MonoBehaviour
             {
                 if (curWeaponList == knives)
                 {
-                    if (knifeIndex > 0)
+                    if (knifeIndex > 0 && knives[knifeIndex - 1].getAmmo() != 0)
                         knifeIndex--;
-                    else if (knifeIndex <= 0)
+                    else if (knifeIndex <= 0 && knives[knives.Length-1].getAmmo() != 0)
                         knifeIndex = knives.Length - 1;
                     m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
                 }
@@ -150,19 +152,40 @@ public class Inventory : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1")) //uses left mouse click to fire the weapon
         {
-            Debug.Log(hasKnives);
+            //Debug.Log(hasKnives);
+            if ((curWeaponList == knives && knives[knifeIndex].getAmmo() == 0) || hasKnives == false)
+            {
+                //Debug.Log("in the if");
+                for (int cur = 0; cur < knives.Length; cur++)
+                {
+                    if (knives[cur].getAmmo() == 0 && cur == knives.Length - 1)
+                    {
+                        hasKnives = false;
+                        break;
+                    }
+                    else if (knives[cur].getAmmo() == 0)
+                        continue;
+                    else if (knives[cur].getAmmo() > 0)
+                    {
+                        knifeIndex = cur;
+                        hasKnives = true;
+                        Debug.Log(knifeIndex);
+                        m_SpriteRenderer.sprite = knivesSprites[knifeIndex];
+                    }
+                }
+            }
             if (curWeaponList == knives && hasKnives == true)
             {
-                Debug.Log("in the method");
+                //Debug.Log("in the method");
                 if (knives[knifeIndex].getAmmo() >= 1)
                 {
-                    Debug.Log("Cool Bios");
+                    //Debug.Log("Cool Bios");
                     knives[knifeIndex].setAmmo(knives[knifeIndex].getAmmo() - 1);
                     Instantiate(knivesObjects[knifeIndex], transform.position, Quaternion.identity, PlayerController.player.entities.transform).GetComponent<KnifeInThrow>().Init(PlayerController.player.aimDir, deadItems[knifeIndex], knifeIndex);
                 }
                 if (knives[knifeIndex].getAmmo() == 0)
                 {
-                    Debug.Log("I am stupid"+" on knife "+knifeIndex+" "+knives[knifeIndex].name+knives[knifeIndex].ammo);
+                    //Debug.Log("I am stupid"+" on knife "+knifeIndex+" "+knives[knifeIndex].name+knives[knifeIndex].ammo);
                 }
             }
             if(curWeaponList == guns)
