@@ -10,6 +10,7 @@ public class Weapon : ScriptableObject {
     public float weaponRange;
     private bool cooldown = false;
     public int ammo;
+    public int damagePerHit;
     public enum DamageType
     {
         Projectile,
@@ -30,6 +31,10 @@ public class Weapon : ScriptableObject {
     public int getAmmo()
     {
         return ammo;
+    }
+    public int getDPH()
+    {
+        return damagePerHit;
     }
 
     public DamageType damageType;
