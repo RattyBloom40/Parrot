@@ -39,7 +39,7 @@ namespace Thread {
 
         }
 
-        Vector2 NextPos(Vector2 currentPos) {
+        public Vector2 NextPos(Vector2 currentPos) {
             map = new NavMap();
             BuildNavMap(start,0);
             NavNode[] array = new NavNode[1];

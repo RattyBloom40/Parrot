@@ -117,7 +117,7 @@ public class EnemyController : MonoBehaviour {
         //use NavMesh
         Thread.NavRequest req = new Thread.NavRequest(transform.position,place,EnemyManager.eManager.navMesh);
         place = req.NextPos(place);
-        return place; //when reach *OR* past pathPoint
+        return ((Vector2)transform.position-place).normalized; //when reach *OR* past pathPoint
     }
 
     /*Vector2 PathTo(Vector2 place, Weapon weapon)
