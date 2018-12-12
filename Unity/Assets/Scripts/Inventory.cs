@@ -25,9 +25,6 @@ public class Inventory : MonoBehaviour
     public Weapon[] curWeaponList;
 
     Rigidbody2D rb2D;
-    public float floatHeight;
-    public float liftForce;
-    public float damping;
     public Vector2 aimDir;
 
     ///////////////////////////////////////

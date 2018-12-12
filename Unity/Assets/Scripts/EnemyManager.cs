@@ -16,6 +16,7 @@ public class EnemyManager : MonoBehaviour {
         else
             Debug.Log("Error: 2 EnemyManagers active");
         navMesh = new Thread.NavMesh(navOrigin, gameObject);
+        Debug.Log("NavMesh complete");
     }
 
     void OnDrawGizmos() {

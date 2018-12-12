@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Thread {
     public class NavMesh {
-        public static float NodeDistance = 1.5f;
+        public static float NodeDistance = 2f;
         public List<NavNode> nodes;
         public GameObject gameObject;
         public bool baked = false;
@@ -34,7 +34,7 @@ namespace Thread {
         }
 
         public void createAdjacentNodes(NavNode origin, int count) {
-            if (count > 10)
+            if (count > 8)
                 return;
             bool up = true;
             bool down = true;
