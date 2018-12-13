@@ -24,6 +24,8 @@ namespace Thread {
         NavMap map;
 
         public NavRequest(Vector2 origin, Vector2 goal, NavMesh mesh) {
+            if (!mesh.baked)
+                return;
             start = null;
             end = null;
             state = State.Pathfind;
