@@ -18,15 +18,22 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    public Vector2[] path; //maybe work as path?
+    public Vector2[] path; //maybe work as path!
     public float speed; //unique attributes
     public Weapon weapon;
+    public float baseHealth;
 
     private float enemyX; //used for position
     private float enemyY;
     private Rigidbody2D rb2d;
     private Vector2 aimDir;
+
     private AttackManager attackManager;
+    private float curHealth;
+
+    private RaycastHit2D toPlayer; //ray from enemy to player
+    private Vector2 playerPos; //stores last seen position
+    private bool search; //used to keep track of last seen position
 
     void Start()
     {
@@ -34,6 +41,8 @@ public class EnemyController : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         enemyX = transform.position.x;
         enemyY = transform.position.y;
+        search = true;
+        curHealth = baseHealth;
     }
 
     private int index = 0; //used for movement loop
@@ -49,7 +58,7 @@ public class EnemyController : MonoBehaviour {
     void Update() {
         pathTowards = Vector2.zero;
         Vector3 newDir;
-        switch(state) {
+        switch(state) { //different behaviors for movement
             case State.Patrol:
                 if (path.Length > 0)
                 {
@@ -59,18 +68,39 @@ public class EnemyController : MonoBehaviour {
                     }
                     newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(path[index].x, path[index].y, 0), 100, 100);
                     aimDir = -(newDir.normalized);
-                    pathTowards = PathTo(path[index]); //movement = towards player
+                    pathTowards = PathTo(path[index]); //movement = towards path
+                }
+                toPlayer = Physics2D.Raycast(transform.position, PlayerController.player.transform.position);
+                if (toPlayer.collider!=null && toPlayer.collider.gameObject.GetComponent<PlayerController>() != null)
+                {
+                    state = State.HuntPlayer; //hunt down mr. player when "see"
                 }
                 break;
             case State.HuntPlayer:
                 newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y, 0), 100, 100);
                 aimDir = -(newDir.normalized);
-                if (PathTo(PlayerController.player.transform.position, weapon).magnitude<.5f){ //path towards the player with weaponRange in between *ALSO* aimDir towards player
+                /*if (PathTo(PlayerController.player.transform.position, weapon).magnitude<.5f){ //path towards the player with weaponRange in between *ALSO* aimDir towards player
                     //attackManager.Attack(aimDir);
                 }
                 else
+                {*/
+                    pathTowards = (PathTo(PlayerController.player.transform.position)); //movement = towards player
+                //}
+                toPlayer = Physics2D.Raycast(transform.position, PlayerController.player.transform.position);
+                if (toPlayer.collider.gameObject.GetComponent<PlayerController>() == null && !search && Vector2.Distance(transform.position,playerPos)!=0)
                 {
-                    pathTowards = (PathTo(PlayerController.player.transform.position, weapon)); //movement = towards player
+                    pathTowards = playerPos;//move towards last seen position
+                }
+                else if (toPlayer.collider.gameObject.GetComponent<PlayerController>() == null && !search && Vector2.Distance(transform.position, playerPos) == 0)
+                {
+                    search = true;
+                    state = State.Patrol; //return to patrol
+                }
+                else if (toPlayer.collider.gameObject.GetComponent<PlayerController>() == null && search)
+                {
+                    playerPos = new Vector2(PlayerController.player.transform.position.x, PlayerController.player.transform.position.y);
+                    search = false;
+                    //set last seen position
                 }
                 break;
         }
@@ -85,13 +115,20 @@ public class EnemyController : MonoBehaviour {
     {
         //give pathPoint towards place w/ regards to speed and walls
         //use NavMesh
-        return place; //when reach *OR* past pathPoint
+        Thread.NavRequest req = new Thread.NavRequest(transform.position,place,EnemyManager.eManager.navMesh);
+        place = req.NextPos(place);
+        return ((Vector2)transform.position-place).normalized; //when reach *OR* past pathPoint
     }
 
-    Vector2 PathTo(Vector2 place, Weapon weapon)
+    /*Vector2 PathTo(Vector2 place, Weapon weapon)
     {
         //give pathPoint towards place w/ regards to speed and walls and weaponRange
         //use NavMesh
         return place; //when reach *OR* past optimal range
+    }*/
+
+    public void dealDamage(int damageDealt)
+    {
+        curHealth -= damageDealt;
     }
 }
