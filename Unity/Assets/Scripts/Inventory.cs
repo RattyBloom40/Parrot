@@ -112,13 +112,12 @@ public class Inventory : MonoBehaviour {
             {
                 Debug.Log("Shooting gun");
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, 100, LayerMask.GetMask("Default"));
-                if (hit.collider == null)
-                    Debug.Log("Hit nothing");
-                if (hit.collider.gameObject.GetComponent<EnemyController>() != null)
+                if (hit.collider != null && hit.collider.gameObject.GetComponent<EnemyController>() != null)
+                {
                     Debug.Log("Hit enemy");
-                else if(hit.collider!=null)
-                    Debug.Log("Hit " + hit.collider.gameObject.name);
-                Debug.Log(aimDir.ToString());
+                    hit.collider.gameObject.GetComponent<EnemyController>().dealDamage(guns[gunIndex].getDPH());
+                }
+
             }
             
         }

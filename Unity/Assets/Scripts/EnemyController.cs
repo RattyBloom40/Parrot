@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour {
     private Vector2 aimDir;
 
     private AttackManager attackManager;
-    private float currHealth;
+    private float curHealth;
 
     private RaycastHit2D toPlayer; //ray from enemy to player
     private Vector2 playerPos; //stores last seen position
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour {
         enemyX = transform.position.x;
         enemyY = transform.position.y;
         search = true;
-        currHealth = baseHealth;
+        curHealth = baseHealth;
     }
 
     private int index = 0; //used for movement loop
@@ -116,7 +116,8 @@ public class EnemyController : MonoBehaviour {
         //give pathPoint towards place w/ regards to speed and walls
         //use NavMesh
         Thread.NavRequest req = new Thread.NavRequest(transform.position,place,EnemyManager.eManager.navMesh);
-        return place; //when reach *OR* past pathPoint
+        place = req.NextPos(place);
+        return ((Vector2)transform.position-place).normalized; //when reach *OR* past pathPoint
     }
 
     /*Vector2 PathTo(Vector2 place, Weapon weapon)
@@ -125,4 +126,9 @@ public class EnemyController : MonoBehaviour {
         //use NavMesh
         return place; //when reach *OR* past optimal range
     }*/
+
+    public void dealDamage(int damageDealt)
+    {
+        curHealth -= damageDealt;
+    }
 }

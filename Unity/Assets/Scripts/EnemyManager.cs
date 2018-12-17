@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour {
     public Thread.NavMesh navMesh;
 
-
     public static EnemyManager eManager;
 
     public Vector2 navOrigin;
