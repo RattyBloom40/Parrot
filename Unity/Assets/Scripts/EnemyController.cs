@@ -65,9 +65,8 @@ public class EnemyController : MonoBehaviour {
                     if (PathTo(path[index]).magnitude < .5f)
                     { //if pathTo returns current position *OR* past
                         index = index >= path.Length - 1 ? 0 : ++index; //if reached path point, go to next path point *ALSO* change aimDir towards next path point
+                        Thread.NavRequest req = new Thread.NavRequest(transform.position,)
                     }
-                    newDir = Vector3.RotateTowards(-transform.right, new Vector3(enemyX, enemyY, 0) - new Vector3(path[index].x, path[index].y, 0), 100, 100);
-                    aimDir = -(newDir.normalized);
                     pathTowards = PathTo(path[index]); //movement = towards path
                 }
                 toPlayer = Physics2D.Raycast(transform.position, PlayerController.player.transform.position);
@@ -117,7 +116,7 @@ public class EnemyController : MonoBehaviour {
         //use NavMesh
         Thread.NavRequest req = new Thread.NavRequest(transform.position,place,EnemyManager.eManager.navMesh);
         place = req.NextPos(place);
-        return ((Vector2)transform.position-place).normalized; //when reach *OR* past pathPoint
+        return ((Vector2)place-(Vector2)transform.position); //when reach *OR* past pathPoint
     }
 
     /*Vector2 PathTo(Vector2 place, Weapon weapon)
